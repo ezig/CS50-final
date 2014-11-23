@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1xp-lv-0U9">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="HrY-HN-nax">
+            <objects>
+                <viewController storyboardIdentifier="Main" id="1xp-lv-0U9" customClass="G8ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9ct-aR-goV"/>
+                        <viewControllerLayoutGuide type="bottom" id="S45-Gk-tGk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jxc-kt-agT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is CS50?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-DT-o7H">
+                                <rect key="frame" x="16" y="28" width="568" height="514"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmn-E4-vHI">
+                                <rect key="frame" x="258" y="550" width="85" height="30"/>
+                                <state key="normal" title="Add Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addReceipt:" destination="1xp-lv-0U9" eventType="touchUpInside" id="Kuf-AL-OyZ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJM-Hf-lHJ">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="trailing" secondItem="jxc-kt-agT" secondAttribute="trailingMargin" id="1IW-9A-srk"/>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="leading" secondItem="jxc-kt-agT" secondAttribute="leadingMargin" id="89I-cC-CbG"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="261" id="DR5-is-h1s"/>
+                            <constraint firstItem="kmn-E4-vHI" firstAttribute="top" secondItem="TAu-DT-o7H" secondAttribute="bottom" constant="8" symbolic="YES" id="L77-xT-j9l"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="centerX" secondItem="kmn-E4-vHI" secondAttribute="centerX" id="MI6-f0-AH3"/>
+                            <constraint firstAttribute="bottom" secondItem="kmn-E4-vHI" secondAttribute="bottom" constant="20" symbolic="YES" id="k5t-vE-93r"/>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="8" symbolic="YES" id="lJZ-P2-lbU"/>
+                            <constraint firstItem="kmn-E4-vHI" firstAttribute="centerX" secondItem="TAu-DT-o7H" secondAttribute="centerX" id="p3c-fv-0RU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityView" destination="eJM-Hf-lHJ" id="OIj-hJ-HyZ"/>
+                        <outlet property="textView" destination="TAu-DT-o7H" id="2db-vl-5Nd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aCd-Ls-q9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="368"/>
+        </scene>
+    </scenes>
+</document>
