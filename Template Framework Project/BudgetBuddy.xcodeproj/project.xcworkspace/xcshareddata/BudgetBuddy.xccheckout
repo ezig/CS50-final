@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FDA31604-EDB5-41A6-968E-F80B59C4782A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BudgetBuddy</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C02CAD220D76F75A9E281E1126EA2DBC580453E9</key>
+		<string>https://github.com/ezig/CS50-final.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Template Framework Project/BudgetBuddy.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C02CAD220D76F75A9E281E1126EA2DBC580453E9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ezig/CS50-final.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C02CAD220D76F75A9E281E1126EA2DBC580453E9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C02CAD220D76F75A9E281E1126EA2DBC580453E9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS50-final</string>
+		</dict>
+	</array>
+</dict>
+</plist>

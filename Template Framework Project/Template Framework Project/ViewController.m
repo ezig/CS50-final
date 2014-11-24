@@ -1,20 +1,20 @@
 //
-//  G8ViewController.m
-//  Template Framework Project
+//  ViewController.m
+//  Budget Buddy
 //
-//  Created by Daniele on 14/10/13.
-//  Copyright (c) 2013 Daniele Galiotto - www.g8production.com. All rights reserved.
+//  Last modified by Ezra on 11/23/14
+//  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
 
-#import "G8ViewController.h"
+#import "ViewController.h"
 
-@interface G8ViewController ()
+@interface ViewController ()
 {
     
 }
 @end
 
-@implementation G8ViewController
+@implementation ViewController
 
 /****README****/
 /*

@@ -1,14 +1,14 @@
 //
-//  G8AppDelegate.m
-//  Template Framework Project
+//  AppDelegate.h
+//  Budget Buddy
 //
-//  Created by Daniele on 14/10/13.
-//  Copyright (c) 2013 Daniele Galiotto - www.g8production.com. All rights reserved.
+//  Last modified by Ezra on 11/23/14
+//  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
 
-#import "G8AppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation G8AppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

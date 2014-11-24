@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1xp-lv-0U9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rDU-xL-L4r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Add Receipt-->
         <scene sceneID="HrY-HN-nax">
             <objects>
-                <viewController storyboardIdentifier="Main" id="1xp-lv-0U9" customClass="G8ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="1xp-lv-0U9" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9ct-aR-goV"/>
                         <viewControllerLayoutGuide type="bottom" id="S45-Gk-tGk"/>
@@ -19,20 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is CS50?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-DT-o7H">
-                                <rect key="frame" x="16" y="28" width="568" height="514"/>
+                                <rect key="frame" x="16" y="86" width="568" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmn-E4-vHI">
-                                <rect key="frame" x="258" y="550" width="85" height="30"/>
-                                <state key="normal" title="Add Receipt">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addReceipt:" destination="1xp-lv-0U9" eventType="touchUpInside" id="Kuf-AL-OyZ"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJM-Hf-lHJ">
                                 <rect key="frame" x="282" y="281" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,16 +30,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TAu-DT-o7H" firstAttribute="trailing" secondItem="jxc-kt-agT" secondAttribute="trailingMargin" id="1IW-9A-srk"/>
-                            <constraint firstItem="TAu-DT-o7H" firstAttribute="leading" secondItem="jxc-kt-agT" secondAttribute="leadingMargin" id="89I-cC-CbG"/>
-                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="261" id="DR5-is-h1s"/>
-                            <constraint firstItem="kmn-E4-vHI" firstAttribute="top" secondItem="TAu-DT-o7H" secondAttribute="bottom" constant="8" symbolic="YES" id="L77-xT-j9l"/>
-                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="centerX" secondItem="kmn-E4-vHI" secondAttribute="centerX" id="MI6-f0-AH3"/>
-                            <constraint firstAttribute="bottom" secondItem="kmn-E4-vHI" secondAttribute="bottom" constant="20" symbolic="YES" id="k5t-vE-93r"/>
-                            <constraint firstItem="TAu-DT-o7H" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="8" symbolic="YES" id="lJZ-P2-lbU"/>
-                            <constraint firstItem="kmn-E4-vHI" firstAttribute="centerX" secondItem="TAu-DT-o7H" secondAttribute="centerX" id="p3c-fv-0RU"/>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="trailing" secondItem="jxc-kt-agT" secondAttribute="trailingMargin" id="b9b-a3-kfw"/>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="22" id="bpI-nF-Vfh"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="217" id="cC9-Av-6k1"/>
+                            <constraint firstAttribute="bottom" secondItem="TAu-DT-o7H" secondAttribute="bottom" id="hYP-TU-UcY"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="centerX" secondItem="TAu-DT-o7H" secondAttribute="centerX" id="uvP-PC-gXw"/>
+                            <constraint firstItem="TAu-DT-o7H" firstAttribute="leading" secondItem="jxc-kt-agT" secondAttribute="leadingMargin" id="zxl-lE-2Z5"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Receipt" id="YEf-PS-wSr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y5C-XL-cHA">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addReceipt:" destination="1xp-lv-0U9" id="b4p-Vp-otF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityView" destination="eJM-Hf-lHJ" id="OIj-hJ-HyZ"/>
                         <outlet property="textView" destination="TAu-DT-o7H" id="2db-vl-5Nd"/>
@@ -59,5 +57,57 @@
             </objects>
             <point key="canvasLocation" x="250" y="368"/>
         </scene>
+        <!--Receipts-->
+        <scene sceneID="qx0-3f-IgX">
+            <objects>
+                <tableViewController id="59b-gG-YuP" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u6T-lC-Rhy">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FOQ-Q9-ncI">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FOQ-Q9-ncI" id="p5M-4n-Lm4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="59b-gG-YuP" id="ZDT-uc-G9U"/>
+                            <outlet property="delegate" destination="59b-gG-YuP" id="h2L-TB-1Ky"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Receipts" id="rYE-dX-sFW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hwy-FO-v8j">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="1xp-lv-0U9" kind="show" id="vJR-wq-B11"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxs-YE-aIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uHU-o4-BHZ">
+            <objects>
+                <navigationController id="rDU-xL-L4r" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vcu-ux-zV8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="59b-gG-YuP" kind="relationship" relationship="rootViewController" id="qUU-7J-X0h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0NB-Z1-foj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1289" y="368"/>
+        </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
