@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630DE81C1A1E6AC5000F2ACC /* Main.storyboard */; };
+		639B68901A24370E00FAD04E /* addimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639B688F1A24370E00FAD04E /* addimage.jpg */; };
 		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
 		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
 		6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDC180C5DE000443362 /* UIKit.framework */; };
 		6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6400DDE1180C5DE000443362 /* InfoPlist.strings */; };
 		6400DDE5180C5DE000443362 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDE4180C5DE000443362 /* main.m */; };
 		6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDE8180C5DE000443362 /* AppDelegate.m */; };
-		6400DDEF180C5DE000443362 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDEE180C5DE000443362 /* ViewController.m */; };
+		6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDEE180C5DE000443362 /* AddReceiptViewController.m */; };
 		6400DDF1180C5DE000443362 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6400DDF0180C5DE000443362 /* Images.xcassets */; };
 		6420626F1846105200EE2AD4 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6420626E1846105200EE2AD4 /* TesseractOCR.framework */; };
 		64907490198A5CD500D728CC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6490748F198A5CD500D728CC /* CoreImage.framework */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		639B688F1A24370E00FAD04E /* addimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addimage.jpg; path = ../../../../../../Desktop/addimage.jpg; sourceTree = "<group>"; };
 		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400DDD8180C5DE000443362 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6400DDDA180C5DE000443362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -34,8 +36,8 @@
 		6400DDE6180C5DE000443362 /* BudgetBuddy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BudgetBuddy-Prefix.pch"; sourceTree = "<group>"; };
 		6400DDE7180C5DE000443362 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6400DDE8180C5DE000443362 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6400DDED180C5DE000443362 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6400DDEE180C5DE000443362 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6400DDED180C5DE000443362 /* AddReceiptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddReceiptViewController.h; sourceTree = "<group>"; };
+		6400DDEE180C5DE000443362 /* AddReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddReceiptViewController.m; sourceTree = "<group>"; };
 		6400DDF0180C5DE000443362 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6400DDF7180C5DE000443362 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6420626E1846105200EE2AD4 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = ../Products/TesseractOCR.framework; sourceTree = "<group>"; };
@@ -98,11 +100,12 @@
 				64DDA75A188FD9140025590D /* tessdata */,
 				6400DDE7180C5DE000443362 /* AppDelegate.h */,
 				6400DDE8180C5DE000443362 /* AppDelegate.m */,
-				6400DDED180C5DE000443362 /* ViewController.h */,
-				6400DDEE180C5DE000443362 /* ViewController.m */,
+				6400DDED180C5DE000443362 /* AddReceiptViewController.h */,
+				6400DDEE180C5DE000443362 /* AddReceiptViewController.m */,
 				6400DDF0180C5DE000443362 /* Images.xcassets */,
 				6400DDDF180C5DE000443362 /* Supporting Files */,
 				630DE81C1A1E6AC5000F2ACC /* Main.storyboard */,
+				639B688F1A24370E00FAD04E /* addimage.jpg */,
 			);
 			path = "Template Framework Project";
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6400DDF1180C5DE000443362 /* Images.xcassets in Resources */,
+				639B68901A24370E00FAD04E /* addimage.jpg in Resources */,
 				630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */,
 				64DDA75B188FD9140025590D /* tessdata in Resources */,
 				6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */,
@@ -187,7 +191,7 @@
 			files = (
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
-				6400DDEF180C5DE000443362 /* ViewController.m in Sources */,
+				6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

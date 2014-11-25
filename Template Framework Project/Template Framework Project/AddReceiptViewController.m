@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AddReceiptViewController.h"
 
-@interface ViewController ()
+@interface AddReceiptViewController ()
 {
     
 }
 @end
 
-@implementation ViewController
+@implementation AddReceiptViewController
 
 /****README****/
 /*
@@ -31,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.vendorField.delegate = self;
+    self.amountField.delegate = self;
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
+    [self addReceipt:nil];
     
     // language are used for recognition. Ex: eng. Tesseract will search for a eng.traineddata file in the dataPath directory; eng+ita will search for a eng.traineddata and ita.traineddata.
     
@@ -46,6 +50,10 @@
     // self should respond to TesseractDelegate and implement shouldCancelImageRecognitionForTesseract: method
     // to have an ability to recieve callback and interrupt Tesseract before it finishes
     
+}
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 -(void)recognizeImageWithTesseract:(UIImage *)img
@@ -68,24 +76,21 @@
 {
     NSArray* wordArray = [text componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \n"]];
     NSUInteger index = [wordArray indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj length] > 0 && [obj characterAtIndex:0] == '$') {
+        if ([obj length] > 0 && [obj rangeOfString:@"$"].location != NSNotFound) {
             return YES;
         }
         return NO;
     }];
     
     NSLog(@"%@",text);
-    if (index == NSNotFound)
-    {
-        self.textView.text = @"Invalid Receipt";
-    } else {
-        self.textView.text = wordArray[index];
+    if (index != NSNotFound) {
+        self.amountField.text = wordArray[index];
     }
     [self.activityView stopAnimating];
 }
 
 - (BOOL)shouldCancelImageRecognitionForTesseract:(Tesseract*)tesseract {
-    NSLog(@"progress: %d", tesseract.progress);
+    //NSLog(@"progress: %d", tesseract.progress);
     return NO;  // return YES, if you need to interrupt tesseract before it finishes
 }
 
@@ -99,16 +104,18 @@
 #pragma mark - UIImagePickerController Delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.textView.text = @"";
     UIImage *img = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:nil];
+    self.imageView.image = img;
+
     [self.activityView startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
         // Update the UI
         [self recognizeImageWithTesseract:img];
     });
 }
-- (IBAction)addReceipt:(id)sender {
+
+- (void)addReceipt {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Choose Photo Source" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Camera",@"Photo Library",nil];
     [alert show];
 }
@@ -135,5 +142,14 @@
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+- (IBAction)addReceipt:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Choose Photo Source" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Camera",@"Photo Library",nil];
+    [alert show];
 }
 @end
