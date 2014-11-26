@@ -10,7 +10,8 @@
 
 @interface AddReceiptViewController ()
 {
-    
+    NSArray *_categoryData;
+    NSArray *_paymentData;
 }
 @end
 
@@ -31,25 +32,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.vendorField.delegate = self;
     self.amountField.delegate = self;
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
+    
+    _paymentData = @[@"Cash", @"Credit", @"Debit", @"Check"];
+    _categoryData = @[@"Entertainment", @"Pharmacy", @"Clothing", @"Bananas", @"Cats"];
+    
+    // Connect data
+    self.paymentPicker.dataSource = self;
+    self.paymentPicker.delegate = self;
+    self.categoryPicker.dataSource = self;
+    self.categoryPicker.delegate = self;
+    
+    [self.navigationItem setHidesBackButton:YES];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
     [self addReceipt:nil];
-    
-    // language are used for recognition. Ex: eng. Tesseract will search for a eng.traineddata file in the dataPath directory; eng+ita will search for a eng.traineddata and ita.traineddata.
-    
-    //Like in the Template Framework Project:
-	// Assumed that .traineddata files are in your "tessdata" folder and the folder is in the root of the project.
-	// Assumed, that you added a folder references "tessdata" into your xCode project tree, with the ‘Create folder references for any added folders’ options set up in the «Add files to project» dialog.
-	// Assumed that any .traineddata files is in the tessdata folder, like in the Template Framework Project
-    
-    //Create your tesseract using the initWithLanguage method:
-	// Tesseract* tesseract = [[Tesseract alloc] initWithLanguage:@"<strong>eng+ita</strong>"];
-    
-    // set up the delegate to recieve tesseract's callback
-    // self should respond to TesseractDelegate and implement shouldCancelImageRecognitionForTesseract: method
-    // to have an ability to recieve callback and interrupt Tesseract before it finishes
-    
+}
+
+-(void)cancel {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Everything will be lost" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
+    alert.tag = 2;
+    [alert show];
 }
 
 -(void)dismissKeyboard {
@@ -100,7 +107,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - UIImagePickerController Delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -117,15 +123,23 @@
 
 - (void)addReceipt {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Choose Photo Source" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Camera",@"Photo Library",nil];
+    alert.tag = 1;
     [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        [self takePhoto];
-    } else if (buttonIndex == 2) {
-        [self choosePhoto];
+    if (alertView.tag == 1) {
+        if (buttonIndex == 1) {
+            [self takePhoto];
+        } else if (buttonIndex == 2) {
+            [self choosePhoto];
+        }
+    } else if (alertView.tag == 2) {
+        if (buttonIndex == 1) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
+
 }
 
 - (void)takePhoto {
@@ -152,4 +166,30 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Choose Photo Source" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Camera",@"Photo Library",nil];
     [alert show];
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if ([pickerView isEqual:self.categoryPicker])
+    {
+        return _categoryData.count;
+    }
+    
+    return _paymentData.count;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if ([pickerView isEqual:self.categoryPicker])
+    {
+        return _categoryData[row];
+    }
+    
+    return _paymentData[row];
+}
+
 @end
