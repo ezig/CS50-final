@@ -14,10 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *paymentPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (weak, nonatomic) IBOutlet UITextField *amountField;
-@property (weak, nonatomic) IBOutlet UITextField *vendorField;
+@property (weak, nonatomic) IBOutlet UITextField *payeeField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction)addReceipt:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end

@@ -17,10 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJM-Hf-lHJ">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rII-uu-mBZ">
                                 <rect key="frame" x="37" y="386" width="527" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="438573528.36717898">
@@ -47,7 +43,7 @@
                                     <segment title="Inflow"/>
                                     <segment title="Outflow"/>
                                 </segments>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.050980392156862744" green="0.83529411764705885" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payee:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf8-ea-kbH">
                                 <rect key="frame" x="139" y="146" width="68" height="21"/>
@@ -94,11 +90,14 @@
                                     </mask>
                                 </variation>
                             </pickerView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJM-Hf-lHJ">
+                                <rect key="frame" x="282" y="219" width="37" height="37"/>
+                                <color key="color" red="0.050980392156862744" green="0.83529411764705885" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UJx-vz-vxK" firstAttribute="centerY" secondItem="jxc-kt-agT" secondAttribute="centerY" id="2vR-Qz-5yP"/>
-                            <constraint firstAttribute="centerX" secondItem="eJM-Hf-lHJ" secondAttribute="centerX" constant="-0.5" id="3vN-4R-rCC"/>
                             <constraint firstItem="Sau-FN-T5O" firstAttribute="leading" secondItem="Ykd-IB-NHs" secondAttribute="leading" id="4L4-AC-54n"/>
                             <constraint firstItem="sXf-av-zh8" firstAttribute="trailing" secondItem="c5P-4y-dQX" secondAttribute="trailing" id="58K-LF-UbG"/>
                             <constraint firstItem="c5P-4y-dQX" firstAttribute="top" secondItem="sXf-av-zh8" secondAttribute="bottom" constant="3" id="58p-Ye-Myg"/>
@@ -110,7 +109,9 @@
                             <constraint firstItem="UJx-vz-vxK" firstAttribute="leading" secondItem="rII-uu-mBZ" secondAttribute="leading" id="8bu-oA-uPi"/>
                             <constraint firstItem="rII-uu-mBZ" firstAttribute="leading" secondItem="jxc-kt-agT" secondAttribute="leadingMargin" constant="21" id="9c0-yv-MoJ"/>
                             <constraint firstItem="Fdz-WP-iO3" firstAttribute="leading" secondItem="eJM-Hf-lHJ" secondAttribute="trailing" constant="33" id="AwO-X5-ZzL"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="centerX" secondItem="rII-uu-mBZ" secondAttribute="centerX" id="Beu-Yp-4NJ"/>
                             <constraint firstItem="Fdz-WP-iO3" firstAttribute="leading" secondItem="UJx-vz-vxK" secondAttribute="trailing" constant="53" id="EtX-F0-KUX"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="top" secondItem="UJx-vz-vxK" secondAttribute="top" id="Gao-MD-RUN"/>
                             <constraint firstItem="Sau-FN-T5O" firstAttribute="leading" secondItem="v3Y-HO-7jE" secondAttribute="trailing" constant="29" id="KLb-1J-lJM"/>
                             <constraint firstItem="Ykd-IB-NHs" firstAttribute="leading" secondItem="Rf8-ea-kbH" secondAttribute="leading" id="Od6-tR-wGI"/>
                             <constraint firstItem="sXf-av-zh8" firstAttribute="trailing" secondItem="jxc-kt-agT" secondAttribute="trailingMargin" id="SEA-RE-YuH"/>
@@ -120,7 +121,6 @@
                             <constraint firstItem="Rf8-ea-kbH" firstAttribute="top" secondItem="Ykd-IB-NHs" secondAttribute="bottom" constant="8" symbolic="YES" id="Wz6-bB-8E7"/>
                             <constraint firstItem="v3Y-HO-7jE" firstAttribute="top" secondItem="9ct-aR-goV" secondAttribute="bottom" constant="8" symbolic="YES" id="Xxw-Ta-JTs"/>
                             <constraint firstItem="sXf-av-zh8" firstAttribute="trailing" secondItem="Sau-FN-T5O" secondAttribute="trailing" id="cXB-d7-Xmj"/>
-                            <constraint firstAttribute="centerY" secondItem="eJM-Hf-lHJ" secondAttribute="centerY" constant="0.5" id="cph-VC-RuS"/>
                             <constraint firstItem="Ykd-IB-NHs" firstAttribute="top" secondItem="Sau-FN-T5O" secondAttribute="bottom" constant="14" id="fL0-gn-4EQ"/>
                             <constraint firstItem="Fdz-WP-iO3" firstAttribute="trailing" secondItem="rII-uu-mBZ" secondAttribute="trailing" id="gGc-2g-lbi"/>
                             <constraint firstItem="c5P-4y-dQX" firstAttribute="leading" secondItem="Rf8-ea-kbH" secondAttribute="trailing" constant="8" symbolic="YES" id="hQf-kJ-PRj"/>
@@ -132,9 +132,9 @@
                             <constraint firstItem="Fdz-WP-iO3" firstAttribute="leading" secondItem="UJx-vz-vxK" secondAttribute="trailing" constant="53" id="mWy-qC-CTG"/>
                             <constraint firstItem="v3Y-HO-7jE" firstAttribute="trailing" secondItem="jnM-b2-nc4" secondAttribute="trailing" id="mfH-LB-hmK"/>
                             <constraint firstItem="sXf-av-zh8" firstAttribute="leading" secondItem="c5P-4y-dQX" secondAttribute="leading" id="n9O-4L-jIA"/>
-                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="leading" secondItem="UJx-vz-vxK" secondAttribute="trailing" constant="8" id="nUf-CL-snz"/>
                             <constraint firstItem="S45-Gk-tGk" firstAttribute="top" secondItem="rII-uu-mBZ" secondAttribute="bottom" constant="8" symbolic="YES" id="rQG-np-FLW"/>
                             <constraint firstItem="v3Y-HO-7jE" firstAttribute="top" secondItem="Sau-FN-T5O" secondAttribute="top" id="rfl-GM-ojF"/>
+                            <constraint firstItem="eJM-Hf-lHJ" firstAttribute="leading" secondItem="UJx-vz-vxK" secondAttribute="trailing" constant="8" symbolic="YES" id="u7E-c7-mGj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -147,14 +147,21 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Receipt" id="YEf-PS-wSr"/>
+                    <navigationItem key="navigationItem" title="Add Receipt" id="YEf-PS-wSr">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="IVi-ik-dfQ">
+                            <connections>
+                                <action selector="done:" destination="1xp-lv-0U9" id="hX4-Yr-8QL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityView" destination="eJM-Hf-lHJ" id="OIj-hJ-HyZ"/>
+                        <outlet property="amountField" destination="sXf-av-zh8" id="Ybr-1X-T0M"/>
                         <outlet property="categoryPicker" destination="UJx-vz-vxK" id="wKT-4s-N1Y"/>
                         <outlet property="imageView" destination="jnM-b2-nc4" id="Xhg-mI-i7Z"/>
+                        <outlet property="payeeField" destination="c5P-4y-dQX" id="Hr9-t7-prd"/>
                         <outlet property="paymentPicker" destination="Fdz-WP-iO3" id="tHe-uU-1Kf"/>
-                        <outlet property="vendorField" destination="c5P-4y-dQX" id="H7q-ev-naG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCd-Ls-q9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,13 +171,13 @@
         <!--Receipts-->
         <scene sceneID="qx0-3f-IgX">
             <objects>
-                <tableViewController id="59b-gG-YuP" sceneMemberID="viewController">
+                <tableViewController id="59b-gG-YuP" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u6T-lC-Rhy">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FOQ-Q9-ncI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptCell" id="FOQ-Q9-ncI">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FOQ-Q9-ncI" id="p5M-4n-Lm4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -186,7 +193,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hwy-FO-v8j">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <segue destination="1xp-lv-0U9" kind="show" id="vJR-wq-B11"/>
+                                <segue destination="1xp-lv-0U9" kind="show" identifier="addReceipt" id="vJR-wq-B11"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -202,7 +209,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vcu-ux-zV8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.050980392156862744" green="0.83529411764705885" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="59b-gG-YuP" kind="relationship" relationship="rootViewController" id="qUU-7J-X0h"/>
