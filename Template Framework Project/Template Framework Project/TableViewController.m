@@ -32,6 +32,10 @@
     if ([segue.identifier isEqualToString:@"addReceipt"]) {
         AddReceiptViewController* view = segue.destinationViewController;
         view.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"showDetail"]) {
+        DetailViewController* view = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        view.receipt = tableData[indexPath.row];
     }
 }
 
@@ -40,8 +44,8 @@
     if (tableData == nil) {
         tableData = [[NSMutableArray alloc] init];
     }
+    
     [tableData addObject:receipt];
-    NSLog(@"%lu", (unsigned long)tableData.count);
     [self.tableView reloadData];
 }
 

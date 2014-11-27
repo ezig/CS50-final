@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddReceiptViewController.h"
+#import "DetailViewController.h"
 
 @interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, ReceiptDelegate>
 

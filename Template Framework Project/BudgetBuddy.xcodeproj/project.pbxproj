@@ -11,6 +11,7 @@
 		634208201A26B5A300BDC242 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6342081F1A26B5A300BDC242 /* TableViewController.m */; };
 		639B68901A24370E00FAD04E /* addimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639B688F1A24370E00FAD04E /* addimage.jpg */; };
 		639D699F1A277FD000F65960 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D699E1A277FD000F65960 /* Receipt.m */; };
+		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
 		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
 		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
 		6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDC180C5DE000443362 /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 		639B688F1A24370E00FAD04E /* addimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addimage.jpg; path = ../../../../../../Desktop/addimage.jpg; sourceTree = "<group>"; };
 		639D699D1A277FD000F65960 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
 		639D699E1A277FD000F65960 /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
+		639D69A01A27D40C00F65960 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400DDD8180C5DE000443362 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6400DDDA180C5DE000443362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,8 @@
 				6400DDF0180C5DE000443362 /* Images.xcassets */,
 				6400DDDF180C5DE000443362 /* Supporting Files */,
 				630DE81C1A1E6AC5000F2ACC /* Main.storyboard */,
+				639D69A01A27D40C00F65960 /* DetailViewController.h */,
+				639D69A11A27D40C00F65960 /* DetailViewController.m */,
 				6342081E1A26B5A300BDC242 /* TableViewController.h */,
 				6342081F1A26B5A300BDC242 /* TableViewController.m */,
 				639B688F1A24370E00FAD04E /* addimage.jpg */,
@@ -204,6 +209,7 @@
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
 				6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */,
+				639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
