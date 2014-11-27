@@ -10,7 +10,7 @@
 
 @interface TableViewController ()
 {
-    NSArray *tableData;
+    NSMutableArray *tableData;
 }
 @end
 
@@ -20,14 +20,29 @@
 {
     [super viewDidLoad];
     // Initialize table data
-    tableData = [NSArray arrayWithObjects:@"Welcome to Budget Buddy!", nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"addReceipt"]) {
-        NSLog(@"Logger");
+    if ([segue.identifier isEqualToString:@"addReceipt"]) {
+        AddReceiptViewController* view = segue.destinationViewController;
+        view.delegate = self;
     }
+}
+
+-(void)getData:(Receipt *)receipt
+{
+    if (tableData == nil) {
+        tableData = [[NSMutableArray alloc] init];
+    }
+    [tableData addObject:receipt];
+    NSLog(@"%lu", (unsigned long)tableData.count);
+    [self.tableView reloadData];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -40,10 +55,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReceiptCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ReceiptCell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    Receipt *receipt = [tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"$%.2f to %@", receipt.amount, receipt.payee];
     return cell;
 }
 

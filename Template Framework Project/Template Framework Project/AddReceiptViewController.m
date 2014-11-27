@@ -31,8 +31,7 @@
  */
 
 
-
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     
@@ -52,19 +51,8 @@
     self.paymentPicker.dataSource = self;
     self.categoryPicker.dataSource = self;
     
-    // Overwrite the default back button behavior to implement custom cancel behavior
+    // Hide the default back button so we can use custom cancel behavior
     [self.navigationItem setHidesBackButton:YES];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
-    self.navigationItem.leftBarButtonItem = backButton;
-}
-
-// Custom cancel behavior for when the user tries to go back.
-// Makes sure that the user really wants to go back
--(void)cancel
-{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Warning: Everything unsaved will be lost." message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
-    alert.tag = CANCEL_ALERT;
-    [alert show];
 }
 
 // Called by gesture recognizer when user touches outside of keyboard.
@@ -124,7 +112,6 @@
 
 -(BOOL)validateInput
 {
-    NSLog(@"%d", (int) self.amountField.text.length);
     if ([self.amountField.text length] == 0) {
         [self apologize:@"Invalid Amount"];
         return NO;
@@ -146,8 +133,26 @@
 
 - (IBAction)done:(id)sender {
     if ([self validateInput]) {
-         [self.navigationController popViewControllerAnimated:YES];
+        Receipt* receipt = [[Receipt alloc] init];
+        receipt.img = self.imageView.image;
+        receipt.date = self.datePicker.date;
+        receipt.payment = [_paymentData objectAtIndex:[self.paymentPicker selectedRowInComponent:0]];
+        receipt.category= [_categoryData objectAtIndex:[self.categoryPicker selectedRowInComponent:0]];
+        receipt.payee = self.payeeField.text;
+        receipt.amount = [self.amountField.text doubleValue];
+        receipt.expenseType = [self.expenseType titleForSegmentAtIndex:[self.expenseType selectedSegmentIndex]];
+        
+        [self.delegate getData:receipt];
+        [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+// Custom cancel behavior for when the user tries to go back.
+// Makes sure that the user really wants to go back
+- (IBAction)cancel:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Warning: Everything unsaved will be lost." message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
+    alert.tag = CANCEL_ALERT;
+    [alert show];
 }
 
 #pragma mark - TeseractDelegate
