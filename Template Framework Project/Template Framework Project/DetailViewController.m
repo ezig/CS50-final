@@ -2,8 +2,8 @@
 //  DetailViewController.m
 //  BudgetBuddy
 //
-//  Created by Ezra Zigmond on 11/27/14.
-//
+//  Last modified by Ezra on 11/27/14
+//  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
 
 #import "DetailViewController.h"
@@ -26,6 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Populate fields with receipt information
     self.imageView.image = self.receipt.img;
     self.expenseType.text = self.receipt.expenseType;
     self.amount.text = [NSString stringWithFormat:@"%.2f", self.receipt.amount];
@@ -43,6 +44,8 @@
 
 #pragma mark - Navigation
 
+// Passes the receipt information and the index from the original table view
+// on to the edit receipt form
  -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
      if ([segue.identifier isEqualToString:@"editReceipt"]) {

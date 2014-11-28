@@ -268,7 +268,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addReceipt:" destination="1xp-lv-0U9" eventType="touchUpInside" id="sCk-Mt-9Rc"/>
+                                    <action selector="addPhoto:" destination="1xp-lv-0U9" eventType="touchUpInside" id="tf5-Du-9SJ"/>
                                 </connections>
                             </button>
                         </subviews>

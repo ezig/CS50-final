@@ -2,7 +2,7 @@
 //  ViewController.h
 //  Budget Buddy
 //
-//  Last modified by Ezra on 11/23/14
+//  Last modified by Ezra on 11/27/14
 //  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
 
@@ -30,7 +30,7 @@
 @property (weak, nonatomic) Receipt* receipt;
 @property (assign, nonatomic) int receiptIdx;
 
-- (IBAction)addReceipt:(id)sender;
+- (IBAction)addPhoto:(id)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)cancel:(id)sender;
 
