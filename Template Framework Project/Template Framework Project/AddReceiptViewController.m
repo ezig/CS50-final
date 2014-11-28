@@ -31,6 +31,13 @@
  */
 
 
+-(id)init {
+    if (self = [super init])  {
+        self.receiptIdx = -1;
+    }
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,6 +60,27 @@
     
     // Hide the default back button so we can use custom cancel behavior
     [self.navigationItem setHidesBackButton:YES];
+
+    if (self.receipt != nil) {
+        self.imageView.image = self.receipt.img;
+        
+        if ([self.receipt.expenseType isEqualToString:@"Inflow"]) {
+            [self.expenseType setSelectedSegmentIndex:0];
+        } else {
+            [self.expenseType setSelectedSegmentIndex:1];
+        }
+        
+        self.amountField.text = [NSString stringWithFormat:@"%.2f", self.receipt.amount];
+        self.payeeField.text = self.receipt.payee;
+        
+        NSUInteger categoryIdx = [_categoryData indexOfObject:self.receipt.category];
+        [self.categoryPicker selectRow:categoryIdx inComponent:0 animated:YES];
+
+        NSUInteger paymentIdx = [_paymentData indexOfObject:self.receipt.payment];
+        [self.paymentPicker selectRow:paymentIdx inComponent:0 animated:YES];
+        
+        self.datePicker.date = self.receipt.date;
+    }
 }
 
 // Called by gesture recognizer when user touches outside of keyboard.
@@ -142,8 +170,8 @@
         receipt.amount = [self.amountField.text doubleValue];
         receipt.expenseType = [self.expenseType titleForSegmentAtIndex:[self.expenseType selectedSegmentIndex]];
         
-        [self.delegate getData:receipt];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.delegate getData:receipt index:self.receiptIdx];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 
