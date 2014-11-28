@@ -14,29 +14,29 @@
 
 @implementation DetailViewController
 
-// There HAS to be a better way to do this
--(id)init {
-    if (self = [super init])  {
-        self.receiptIdx = -1;
-    }
-    return self;
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Populate fields with receipt information
+    self.imageView.image = [UIImage imageWithData:self.details.imageData];
+    self.expenseType.text = self.info.expenseType;
+    self.amount.text = [NSString stringWithFormat:@"%.2f", [self.info.amount doubleValue]];
+    self.payee.text = self.info.payee;
+    self.category.text = self.details.category;
+    self.payment.text = self.details.payment;
+    self.date.text = [self.info.date description];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Populate fields with receipt information
-    self.imageView.image = self.receipt.img;
-    self.expenseType.text = self.receipt.expenseType;
-    self.amount.text = [NSString stringWithFormat:@"%.2f", self.receipt.amount];
-    self.payee.text = self.receipt.payee;
-    self.payment.text = self.receipt.payment;
-    self.category.text = self.receipt.category;
-    self.date.text = [self.receipt.date description];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -50,11 +50,8 @@
 {
      if ([segue.identifier isEqualToString:@"editReceipt"]) {
          AddReceiptViewController* view = segue.destinationViewController;
-         view.receipt = self.receipt;
-         view.delegate = [self.navigationController.viewControllers objectAtIndex:0];
-         if (self.receiptIdx != -1) {
-             view.receiptIdx = self.receiptIdx;
-         }
+         view.info = self.info;
+         view.details = self.details;
      }
 }
 

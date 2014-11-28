@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Receipt.h"
+#import "ReceiptInfo.h"
+#import "ReceiptDetails.h"
 #import "AddReceiptViewController.h"
 
 @interface DetailViewController : UIViewController
 
-@property (weak, nonatomic) Receipt* receipt;
-@property (assign, nonatomic) int receiptIdx;
+@property (strong) ReceiptInfo *info;
+@property (strong) ReceiptDetails *details;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *expenseType;

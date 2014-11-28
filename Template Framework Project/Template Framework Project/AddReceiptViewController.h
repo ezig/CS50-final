@@ -8,16 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <TesseractOCR/TesseractOCR.h>
-#import "Receipt.h"
-
-@protocol ReceiptDelegate
-@required
--(void)getData:(Receipt*)receipt index:(int)idx;
-
-@end
+#import "ReceiptInfo.h"
+#import "ReceiptDetails.h"
 
 @interface AddReceiptViewController : UIViewController <TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (strong) ReceiptInfo *info;
+@property (strong) ReceiptDetails *details;
 @property(assign, nonatomic) id delegate;
 @property (weak, nonatomic) IBOutlet UIPickerView *paymentPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
@@ -27,8 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expenseType;
-@property (weak, nonatomic) Receipt* receipt;
-@property (assign, nonatomic) int receiptIdx;
 
 - (IBAction)addPhoto:(id)sender;
 - (IBAction)done:(id)sender;

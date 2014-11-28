@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630DE81C1A1E6AC5000F2ACC /* Main.storyboard */; };
 		634208201A26B5A300BDC242 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6342081F1A26B5A300BDC242 /* TableViewController.m */; };
+		63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A391A29061F003DE640 /* ReceiptDetails.m */; };
+		63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A3C1A29061F003DE640 /* ReceiptInfo.m */; };
 		639B68901A24370E00FAD04E /* addimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639B688F1A24370E00FAD04E /* addimage.jpg */; };
 		639D699F1A277FD000F65960 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D699E1A277FD000F65960 /* Receipt.m */; };
 		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
+		63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AA3FB91A28D40C00355216 /* CoreData.framework */; };
+		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
 		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
 		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
 		6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDC180C5DE000443362 /* UIKit.framework */; };
@@ -30,11 +34,17 @@
 		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6342081E1A26B5A300BDC242 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		6342081F1A26B5A300BDC242 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		63433A381A29061F003DE640 /* ReceiptDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptDetails.h; sourceTree = "<group>"; };
+		63433A391A29061F003DE640 /* ReceiptDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptDetails.m; sourceTree = "<group>"; };
+		63433A3B1A29061F003DE640 /* ReceiptInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptInfo.h; sourceTree = "<group>"; };
+		63433A3C1A29061F003DE640 /* ReceiptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptInfo.m; sourceTree = "<group>"; };
 		639B688F1A24370E00FAD04E /* addimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addimage.jpg; path = ../../../../../../Desktop/addimage.jpg; sourceTree = "<group>"; };
 		639D699D1A277FD000F65960 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
 		639D699E1A277FD000F65960 /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
 		639D69A01A27D40C00F65960 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		63AA3FB91A28D40C00355216 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetBuddy.xcdatamodel; sourceTree = "<group>"; };
 		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400DDD8180C5DE000443362 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6400DDDA180C5DE000443362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,7 +56,7 @@
 		6400DDE7180C5DE000443362 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6400DDE8180C5DE000443362 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6400DDED180C5DE000443362 /* AddReceiptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddReceiptViewController.h; sourceTree = "<group>"; };
-		6400DDEE180C5DE000443362 /* AddReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddReceiptViewController.m; sourceTree = "<group>"; };
+		6400DDEE180C5DE000443362 /* AddReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddReceiptViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		6400DDF0180C5DE000443362 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6400DDF7180C5DE000443362 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6420626E1846105200EE2AD4 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = ../Products/TesseractOCR.framework; sourceTree = "<group>"; };
@@ -60,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */,
 				64907490198A5CD500D728CC /* CoreImage.framework in Frameworks */,
 				6420626F1846105200EE2AD4 /* TesseractOCR.framework in Frameworks */,
 				64E40AB1180C6D4D00C36DDE /* libstdc++.6.0.9.dylib in Frameworks */,
@@ -75,7 +86,7 @@
 		6400DDCC180C5DE000443362 = {
 			isa = PBXGroup;
 			children = (
-				6400DDDE180C5DE000443362 /* Template Framework Project */,
+				6400DDDE180C5DE000443362 /* BudgetBuddy Project */,
 				6400DDD7180C5DE000443362 /* Frameworks */,
 				6400DDD6180C5DE000443362 /* Products */,
 			);
@@ -92,6 +103,7 @@
 		6400DDD7180C5DE000443362 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63AA3FB91A28D40C00355216 /* CoreData.framework */,
 				6490748F198A5CD500D728CC /* CoreImage.framework */,
 				64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */,
 				6420626E1846105200EE2AD4 /* TesseractOCR.framework */,
@@ -103,13 +115,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6400DDDE180C5DE000443362 /* Template Framework Project */ = {
+		6400DDDE180C5DE000443362 /* BudgetBuddy Project */ = {
 			isa = PBXGroup;
 			children = (
+				63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */,
 				64DDA75A188FD9140025590D /* tessdata */,
 				6400DDE7180C5DE000443362 /* AppDelegate.h */,
 				6400DDE8180C5DE000443362 /* AppDelegate.m */,
 				639D699D1A277FD000F65960 /* Receipt.h */,
+				63433A3B1A29061F003DE640 /* ReceiptInfo.h */,
+				63433A3C1A29061F003DE640 /* ReceiptInfo.m */,
+				63433A381A29061F003DE640 /* ReceiptDetails.h */,
+				63433A391A29061F003DE640 /* ReceiptDetails.m */,
 				639D699E1A277FD000F65960 /* Receipt.m */,
 				6400DDED180C5DE000443362 /* AddReceiptViewController.h */,
 				6400DDEE180C5DE000443362 /* AddReceiptViewController.m */,
@@ -122,6 +139,7 @@
 				6342081F1A26B5A300BDC242 /* TableViewController.m */,
 				639B688F1A24370E00FAD04E /* addimage.jpg */,
 			);
+			name = "BudgetBuddy Project";
 			path = "Template Framework Project";
 			sourceTree = "<group>";
 		};
@@ -204,10 +222,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */,
 				634208201A26B5A300BDC242 /* TableViewController.m in Sources */,
 				639D699F1A277FD000F65960 /* Receipt.m in Sources */,
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
+				63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */,
+				63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */,
 				6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */,
 				639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */,
 			);
@@ -365,6 +386,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */,
+			);
+			currentVersion = 63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */;
+			path = BudgetBuddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6400DDCD180C5DE000443362 /* Project object */;
 }

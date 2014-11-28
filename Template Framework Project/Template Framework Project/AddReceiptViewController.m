@@ -7,6 +7,8 @@
 //
 
 #import "AddReceiptViewController.h"
+#import "ReceiptInfo.h"
+#import "ReceiptDetails.h"
 
 // Constants for different alert views
 #define CAMERA_ALERT 1
@@ -22,12 +24,10 @@
 
 @implementation AddReceiptViewController
 
-// TODO: make this less bad
--(id)init {
-    if (self = [super init])  {
-        self.receiptIdx = -1;
-    }
-    return self;
+- (NSManagedObjectContext *)managedObjectContext
+{
+    id delegate = [[UIApplication sharedApplication] delegate];
+    return [delegate managedObjectContext];
 }
 
 -(void)viewDidLoad
@@ -53,27 +53,29 @@
     // Hide the default back button so we can use custom cancel behavior
     [self.navigationItem setHidesBackButton:YES];
 
-    // If the receipt property is set, that means we are editing an existing receipt,
+    // If the info and detail properties iare set, that means we are editing an existing receipt,
     // so set the fields to the previous properties of the receipt we are editing
-    if (self.receipt != nil) {
-        self.imageView.image = self.receipt.img;
+    if (self.info && self.details) {
         
-        if ([self.receipt.expenseType isEqualToString:@"Inflow"]) {
+        //Populate fields with receipt information
+        self.imageView.image = [UIImage imageWithData:self.details.imageData];
+        
+        if ([self.info.expenseType isEqualToString:@"Inflow"]) {
             [self.expenseType setSelectedSegmentIndex:0];
         } else {
             [self.expenseType setSelectedSegmentIndex:1];
         }
         
-        self.amountField.text = [NSString stringWithFormat:@"%.2f", self.receipt.amount];
-        self.payeeField.text = self.receipt.payee;
+        self.amountField.text = [NSString stringWithFormat:@"%.2f", [self.info.amount doubleValue]];
+        self.payeeField.text = self.info.payee;
         
-        NSUInteger categoryIdx = [categoryData indexOfObject:self.receipt.category];
+        NSUInteger categoryIdx = [categoryData indexOfObject:self.details.category];
         [self.categoryPicker selectRow:categoryIdx inComponent:0 animated:YES];
 
-        NSUInteger paymentIdx = [paymentData indexOfObject:self.receipt.payment];
+        NSUInteger paymentIdx = [paymentData indexOfObject:self.details.payment];
         [self.paymentPicker selectRow:paymentIdx inComponent:0 animated:YES];
         
-        self.datePicker.date = self.receipt.date;
+        self.datePicker.date = self.info.date;
     }
 }
 
@@ -169,21 +171,51 @@
     [alert show];
 }
 
-// Extracts information form user input fields and returns data to root controller
-// Pops view back to root view controller
+// Extracts information form user input fields and puts data into model
+// Pops view back to previous controller
+//TODO: there's probably a better way to do this with less code repeated
 - (IBAction)done:(id)sender {
     if ([self validateInput]) {
-        Receipt* receipt = [[Receipt alloc] init];
-        receipt.img = self.imageView.image;
-        receipt.date = self.datePicker.date;
-        receipt.payment = [paymentData objectAtIndex:[self.paymentPicker selectedRowInComponent:0]];
-        receipt.category= [categoryData objectAtIndex:[self.categoryPicker selectedRowInComponent:0]];
-        receipt.payee = self.payeeField.text;
-        receipt.amount = [self.amountField.text doubleValue];
-        receipt.expenseType = [self.expenseType titleForSegmentAtIndex:[self.expenseType selectedSegmentIndex]];
+        NSManagedObjectContext *context = [self managedObjectContext];
+        // editing an existing receipt
+        if (self.info && self.details)
+        {
+            [self.info setValue:self.datePicker.date forKey:@"date"];
+            [self.info setValue:[[NSNumber alloc] initWithDouble:[self.amountField.text doubleValue]] forKey:@"amount"];
+            [self.info setValue:[self.expenseType titleForSegmentAtIndex:[self.expenseType selectedSegmentIndex]] forKey:@"expenseType"];
+            [self.info setValue:self.payeeField.text forKey:@"payee"];
+            
+            [self.details setValue:[categoryData objectAtIndex:[self.categoryPicker selectedRowInComponent:0]] forKey:@"category"];
+            [self.details setValue:[paymentData objectAtIndex:[self.paymentPicker selectedRowInComponent:0]] forKey:@"payment"];
+            NSData* imageData = UIImagePNGRepresentation(self.imageView.image);
+            [self.details setValue:imageData forKey:@"imageData"];
+        }
+        // creating a new one
+        else {
+            ReceiptInfo* info = [NSEntityDescription insertNewObjectForEntityForName:@"ReceiptInfo" inManagedObjectContext:context];
+            [info setValue:self.datePicker.date forKey:@"date"];
+            [info setValue:[[NSNumber alloc] initWithDouble:[self.amountField.text doubleValue]] forKey:@"amount"];
+            [info setValue:[self.expenseType titleForSegmentAtIndex:[self.expenseType selectedSegmentIndex]] forKey:@"expenseType"];
+            [info setValue:self.payeeField.text forKey:@"payee"];
+            
+            ReceiptDetails* details = [NSEntityDescription insertNewObjectForEntityForName:@"ReceiptDetails" inManagedObjectContext:context];
+            [details setValue:[categoryData objectAtIndex:[self.categoryPicker selectedRowInComponent:0]] forKey:@"category"];
+            [details setValue:[paymentData objectAtIndex:[self.paymentPicker selectedRowInComponent:0]]
+               forKey:@"payment"];
+            NSData* imageData = UIImagePNGRepresentation(self.imageView.image);
+            [details setValue:imageData forKey:@"imageData"];
+            
+            [details setValue:info forKey:@"info"];
+            [info setValue:details forKey:@"details"];
+        }
         
-        [self.delegate getData:receipt index:self.receiptIdx];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't update CoreData %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

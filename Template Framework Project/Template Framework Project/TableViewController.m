@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "ReceiptInfo.h"
 
 @interface TableViewController ()
 {
@@ -16,6 +17,12 @@
 
 @implementation TableViewController
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    id delegate = [[UIApplication sharedApplication] delegate];
+    return [delegate managedObjectContext];
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,6 +30,17 @@
     //TODO: Move this
     // Allow user to edit the list of receipts
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
+    tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,50 +57,22 @@
     if ([segue.identifier isEqualToString:@"addReceipt"]) {
         AddReceiptViewController* view = segue.destinationViewController;
         view.delegate = self;
-        // Tell add receipt controller that this is a new insertion
-        view.receiptIdx = -1;
     } else if ([segue.identifier isEqualToString:@"showDetail"]) {
         DetailViewController* view = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        view.receipt = tableData[indexPath.row];
-        view.receiptIdx = (int) indexPath.row;
+        view.info = tableData[indexPath.row];
+        view.details = [tableData[indexPath.row] details];
     }
 }
 
-#pragma mark - ReceiptDelegate
+//        // Insert the receipt so that ascending date order is preserved
+//        for (i = 0; i < len; i++) {
+//            if ([[[tableData objectAtIndex:i] date] compare:receipt.date] == NSOrderedDescending)
+//            {
+//                break;
+//            }
+//        }
 
-// Create a new receipt entry or update an existing entry
--(void)getData:(Receipt *)receipt index:(int)idx
-{
-    // Initialize data for table if it doesn't exist
-    if (tableData == nil) {
-        tableData = [[NSMutableArray alloc] init];
-    }
-    
-    // If idx != -1, editing an existing receipt
-    if (idx != -1) {
-        // replace the old receipt with the new information
-        [tableData replaceObjectAtIndex:idx withObject:receipt];
-    }
-    // Otherwise, adding a new receipt
-    else {
-        int len = (int) tableData.count;
-        int i;
-        
-        // Insert the receipt so that ascending date order is preserved
-        for (i = 0; i < len; i++) {
-            if ([[[tableData objectAtIndex:i] date] compare:receipt.date] == NSOrderedDescending)
-            {
-                break;
-            }
-        }
-        
-        [tableData insertObject:receipt atIndex:i];
-    }
-
-    // refresh the table with the updated
-    [self.tableView reloadData];
-}
 
 #pragma mark - UITableView Delegate
 
@@ -105,9 +95,9 @@
     }
 
     // Get the appropriate datum
-    Receipt *receipt = [tableData objectAtIndex:indexPath.row];
+    ReceiptInfo *receiptInfo = [tableData objectAtIndex:indexPath.row];
     //TODO: Include the date
-    cell.textLabel.text = [NSString stringWithFormat:@"$%.2f to %@", receipt.amount, receipt.payee];
+    cell.textLabel.text = [NSString stringWithFormat:@"$%.2f to %@", [receiptInfo.amount doubleValue], receiptInfo.payee];
     return cell;
 }
 
@@ -119,6 +109,15 @@
 // Deletes appropriate data entry when the item is deleted from the table in edit mode
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = [self managedObjectContext];
+        [context deleteObject:[tableData objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't delete %@ %@", error, [error localizedDescription]);
+            return;
+        }
+
         [tableData removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

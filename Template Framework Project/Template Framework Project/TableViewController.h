@@ -10,6 +10,9 @@
 #import "AddReceiptViewController.h"
 #import "DetailViewController.h"
 
-@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, ReceiptDelegate>
+@interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic,strong) NSMutableArray* receiptData;
 
 @end
