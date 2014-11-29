@@ -14,9 +14,9 @@
 
 @implementation DetailViewController
 
-- (void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
     // Populate fields with receipt information
     self.imageView.image = [UIImage imageWithData:self.details.imageData];
@@ -27,6 +27,20 @@
     self.payment.text = self.details.payment;
     self.date.text = [self.info.date description];
 }
+
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    
+//    // Populate fields with receipt information
+//    self.imageView.image = [UIImage imageWithData:self.details.imageData];
+//    self.expenseType.text = self.info.expenseType;
+//    self.amount.text = [NSString stringWithFormat:@"%.2f", [self.info.amount doubleValue]];
+//    self.payee.text = self.info.payee;
+//    self.category.text = self.details.category;
+//    self.payment.text = self.details.payment;
+//    self.date.text = [self.info.date description];
+//}
 
 - (void)viewDidLoad
 {

@@ -26,21 +26,28 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //TODO: Move this
-    // Allow user to edit the list of receipts
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
 }
 
+//TODO: decide if we want the user to see the animation
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+ 
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Sort results of fetch request in ascending date order
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSArray* descriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:descriptors];
+    
     tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
     
-    [self.tableView reloadData];
+    // Reloads the table with an animation
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,15 +72,6 @@
     }
 }
 
-//        // Insert the receipt so that ascending date order is preserved
-//        for (i = 0; i < len; i++) {
-//            if ([[[tableData objectAtIndex:i] date] compare:receipt.date] == NSOrderedDescending)
-//            {
-//                break;
-//            }
-//        }
-
-
 #pragma mark - UITableView Delegate
 
 //TODO: implement month breaks
@@ -97,7 +95,7 @@
     // Get the appropriate datum
     ReceiptInfo *receiptInfo = [tableData objectAtIndex:indexPath.row];
     //TODO: Include the date
-    cell.textLabel.text = [NSString stringWithFormat:@"$%.2f to %@", [receiptInfo.amount doubleValue], receiptInfo.payee];
+    cell.textLabel.text = [receiptInfo tableText];
     return cell;
 }
 
