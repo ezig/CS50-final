@@ -31,8 +31,16 @@
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"d"];
-    return [NSString stringWithFormat:@"%@ \t\t $%.2f to %@", [dateFormatter stringFromDate:self.date],
-            [self.amount doubleValue], self.payee];
+    
+    NSString *toFrom;
+    if ([self.expenseType isEqualToString:@"Inflow"]) {
+        toFrom = @"from";
+    } else {
+        toFrom = @"to";
+    }
+    
+    return [NSString stringWithFormat:@"%@ \t\t $%.2f %@ %@", [dateFormatter stringFromDate:self.date],
+            [self.amount doubleValue], toFrom, self.payee];
 }
 
 @end

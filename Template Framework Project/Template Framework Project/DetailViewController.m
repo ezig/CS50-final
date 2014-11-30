@@ -25,7 +25,9 @@
     self.payee.text = self.info.payee;
     self.category.text = self.details.category;
     self.payment.text = self.details.payment;
-    self.date.text = [self.info.date description];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"LLLL d y"];
+    self.date.text = [dateFormatter stringFromDate:self.info.date];
 }
 
 //- (void)viewDidAppear:(BOOL)animated

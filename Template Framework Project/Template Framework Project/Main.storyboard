@@ -219,7 +219,7 @@
                                     <segment title="Inflow"/>
                                     <segment title="Outflow"/>
                                 </segments>
-                                <color key="tintColor" red="0.16078431372549021" green="0.82745098039215681" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.10980392156862745" green="0.6705882352941176" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payee:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf8-ea-kbH">
                                 <rect key="frame" x="139" y="146" width="68" height="21"/>
@@ -397,7 +397,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vcu-ux-zV8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.16078431372549021" green="0.82745098039215681" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.10980392156862745" green="0.6705882352941176" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
