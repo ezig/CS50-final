@@ -23,7 +23,7 @@
 -(NSString *) sectionTitle
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"LLLL y"];
+    [dateFormatter setDateFormat:@"y MM"];
     return [dateFormatter stringFromDate:self.date];
 }
 

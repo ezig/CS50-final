@@ -11,7 +11,9 @@
 
 @interface TableViewController ()
 {
+    NSArray *sectionTitles;
     NSMutableArray *tableData;
+    NSMutableDictionary *tableDict;
 }
 @end
 
@@ -26,7 +28,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
 }
 
 //TODO: decide if we want the user to see the animation
@@ -36,18 +38,13 @@
  
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    // Sort results of fetch request in ascending date order
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
-    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-    NSArray* descriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:descriptors];
-    
-    tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
+    [self reloadTable];
+//    NSLog(@"%@", [tableDict description]);
+//    NSLog(@"%@", [[tableDict allKeys] description]);
     
     // Reloads the table with an animation
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    //[self.tableView reloadData];
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,18 +64,30 @@
     } else if ([segue.identifier isEqualToString:@"showDetail"]) {
         DetailViewController* view = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        view.info = tableData[indexPath.row];
-        view.details = [tableData[indexPath.row] details];
+        
+        // Get the appropriate datum
+        NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
+        view.info = [arr objectAtIndex:indexPath.row];
+        view.details = [[arr objectAtIndex:indexPath.row] details];
     }
 }
 
 #pragma mark - UITableView Delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [sectionTitles count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [sectionTitles objectAtIndex:section];
+}
 
 //TODO: implement month breaks
 // Returns number of rows in each section
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return tableData.count;
+    return [[tableDict objectForKey:[sectionTitles objectAtIndex:section]] count];
 }
 
 // Minimizes memory usage by reusing table cells.
@@ -93,13 +102,13 @@
     }
 
     // Get the appropriate datum
-    ReceiptInfo *receiptInfo = [tableData objectAtIndex:indexPath.row];
+    NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
+    ReceiptInfo *receiptInfo = [arr objectAtIndex:indexPath.row];
     //TODO: Include the date
     cell.textLabel.text = [receiptInfo tableText];
     return cell;
 }
 
-//TODO: Make month breaks not editable
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
@@ -108,7 +117,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self managedObjectContext];
-        [context deleteObject:[tableData objectAtIndex:indexPath.row]];
+        NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
+        [context deleteObject:[[arr objectAtIndex:indexPath.row] details]];
+        [context deleteObject:[arr objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -116,9 +127,50 @@
             return;
         }
 
-        [tableData removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self reloadTable];
+//        //[tableData removeObjectAtIndex:indexPath.row];
+//        if ([[tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]] count] > 1) {
+//            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        } else {
+//            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+//                     withRowAnimation:UITableViewRowAnimationFade];
+//        }
     }
+}
+
+// terrible horrible no good very bad hack
+
+-(void)reloadTable
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Sort results of fetch request in ascending date order
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSArray* descriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:descriptors];
+    
+    tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
+    
+    tableDict = [[NSMutableDictionary alloc] init];
+    for (id obj in tableData) {
+        if([tableDict objectForKey:[obj sectionTitle]] != nil) {
+            [[tableDict objectForKey:[obj sectionTitle]] addObject:obj];
+        } else {
+            [tableDict setValue:[[NSMutableArray alloc] initWithObjects:obj, nil] forKey:[obj sectionTitle]];
+        }
+    }
+    sectionTitles = [[tableDict allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    [self.tableView reloadData];
+    
+    //http://stackoverflow.com/questions/419472/have-a-reloaddata-for-a-uitableview-animate-when-changing
+    CATransition *animation = [CATransition animation];
+    [animation setType:kCATransitionFade];
+    [animation setDuration:.3];
+    [[self.tableView layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
+    
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [sectionTitles count])] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 @end
