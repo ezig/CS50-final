@@ -408,14 +408,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NB-Z1-foj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1289" y="368"/>
+            <point key="canvasLocation" x="-1261" y="359"/>
         </scene>
     </scenes>
     <resources>
         <image name="addimage.jpg" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vJR-wq-B11"/>
+        <segue reference="0WK-pf-UZy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

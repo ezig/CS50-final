@@ -11,7 +11,7 @@
 
 @interface TableViewController ()
 {
-    NSArray *sectionTitles;
+    NSMutableArray *sectionTitles;
     NSMutableArray *tableData;
     NSMutableDictionary *tableDict;
 }
@@ -104,7 +104,6 @@
     // Get the appropriate datum
     NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
     ReceiptInfo *receiptInfo = [arr objectAtIndex:indexPath.row];
-    //TODO: Include the date
     cell.textLabel.text = [receiptInfo tableText];
     return cell;
 }
@@ -127,14 +126,17 @@
             return;
         }
 
-        [self reloadTable];
-//        //[tableData removeObjectAtIndex:indexPath.row];
-//        if ([[tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]] count] > 1) {
-//            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        } else {
-//            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
-//                     withRowAnimation:UITableViewRowAnimationFade];
-//        }
+        //[self reloadTable];
+        //[tableData removeObjectAtIndex:indexPath.row];
+        if ([[tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]] count] == 1) {
+            [tableDict removeObjectForKey:[sectionTitles objectAtIndex:[indexPath section]]];
+            [sectionTitles removeObjectAtIndex:indexPath.section];
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex:[indexPath section]] withRowAnimation:UITableViewRowAnimationFade];
+        } else {
+            [[tableDict objectForKey:[sectionTitles objectAtIndex:[indexPath section]]]
+             removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }
 }
 
@@ -160,7 +162,7 @@
             [tableDict setValue:[[NSMutableArray alloc] initWithObjects:obj, nil] forKey:[obj sectionTitle]];
         }
     }
-    sectionTitles = [[tableDict allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    sectionTitles = [[NSMutableArray alloc] initWithArray:[[tableDict allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]];
     
     [self.tableView reloadData];
     
