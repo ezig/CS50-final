@@ -10,8 +10,9 @@
 #import <TesseractOCR/TesseractOCR.h>
 #import "ReceiptInfo.h"
 #import "ReceiptDetails.h"
+#import "AutocompleteTextField.h"
 
-@interface AddReceiptViewController : UIViewController <TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddReceiptViewController : UIViewController <TesseractDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, AutocompleteTextFieldDelegate>
 
 @property (strong) ReceiptInfo *info;
 @property (strong) ReceiptDetails *details;
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *paymentPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (weak, nonatomic) IBOutlet UITextField *amountField;
-@property (weak, nonatomic) IBOutlet UITextField *payeeField;
+@property (weak, nonatomic) IBOutlet AutocompleteTextField *payeeField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;

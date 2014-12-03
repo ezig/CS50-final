@@ -39,6 +39,9 @@
     self.paymentPicker.delegate = self;
     self.categoryPicker.delegate = self;
     
+    self.payeeField.userString = @"";
+    //self.payeeField.completionStrin
+    
     // Set gesture recognize to dismiss keyboards
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
     
@@ -317,11 +320,24 @@
 #pragma mark - UITextField Delegate
 
 // Close the keyboard if you press the "done" button on the keyboard
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return YES;
 }
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    AutocompleteTextField* field = (AutocompleteTextField*)textField;
+    if (textField.tag == 1)
+    {
+        [field uncomplete];
+        field.userString = [NSString stringWithFormat:@"%@%@", field.userString,string];
+        [field complete];
+    }
+    return YES;
+}
 #pragma mark - UIPickerViewDataSource Delegate
 
 // Each picker view only has one component
@@ -352,5 +368,19 @@
     }
     
     return paymentData[row];
+}
+
+#pragma mark - AutocompleteTextField Delegate
+- (NSString *)suggestionForString:(NSString *)inputString
+{
+    NSString *completedString = @"David Malan";
+    NSRange originStringRange = [completedString rangeOfString:inputString];
+    
+    if (originStringRange.location != 0) {
+        completedString = nil;
+    }
+    
+    return completedString;
+
 }
 @end

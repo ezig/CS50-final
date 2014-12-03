@@ -234,7 +234,7 @@
                                     <constraint firstAttribute="width" constant="100" id="CUA-yo-BVh"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-4y-dQX">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-4y-dQX" customClass="AutocompleteTextField">
                                 <rect key="frame" x="215" y="141" width="369" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -345,7 +345,7 @@
                         <outlet property="datePicker" destination="rII-uu-mBZ" id="ePf-fN-tom"/>
                         <outlet property="expenseType" destination="Sau-FN-T5O" id="jI3-xQ-tj4"/>
                         <outlet property="imageView" destination="jnM-b2-nc4" id="Xhg-mI-i7Z"/>
-                        <outlet property="payeeField" destination="c5P-4y-dQX" id="Hr9-t7-prd"/>
+                        <outlet property="payeeField" destination="c5P-4y-dQX" id="iF2-1j-9c1"/>
                         <outlet property="paymentPicker" destination="Fdz-WP-iO3" id="tHe-uU-1Kf"/>
                     </connections>
                 </viewController>

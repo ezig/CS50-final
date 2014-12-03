@@ -115,10 +115,12 @@
 // Deletes appropriate data entry when the item is deleted from the table in edit mode
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString *title = [sectionTitles objectAtIndex:indexPath.section];
+        ReceiptInfo *info = [[tableDict objectForKey:title] objectAtIndex:indexPath.row];
+        
         NSManagedObjectContext *context = [self managedObjectContext];
-        NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
-        [context deleteObject:[[arr objectAtIndex:indexPath.row] details]];
-        [context deleteObject:[arr objectAtIndex:indexPath.row]];
+        [context deleteObject:[info details]];
+        [context deleteObject:info];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -126,10 +128,11 @@
             return;
         }
 
+        
         //[self reloadTable];
         //[tableData removeObjectAtIndex:indexPath.row];
-        if ([[tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]] count] == 1) {
-            [tableDict removeObjectForKey:[sectionTitles objectAtIndex:[indexPath section]]];
+        if ([[tableDict objectForKey:title] count] == 1) {
+            [tableDict removeObjectForKey:title];
             [sectionTitles removeObjectAtIndex:indexPath.section];
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:[indexPath section]] withRowAnimation:UITableViewRowAnimationFade];
         } else {

@@ -13,6 +13,7 @@
 		63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A391A29061F003DE640 /* ReceiptDetails.m */; };
 		63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A3C1A29061F003DE640 /* ReceiptInfo.m */; };
 		639B68901A24370E00FAD04E /* addimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639B688F1A24370E00FAD04E /* addimage.jpg */; };
+		639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */; };
 		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
 		63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AA3FB91A28D40C00355216 /* CoreData.framework */; };
 		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
@@ -40,6 +41,8 @@
 		63433A3B1A29061F003DE640 /* ReceiptInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptInfo.h; sourceTree = "<group>"; };
 		63433A3C1A29061F003DE640 /* ReceiptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptInfo.m; sourceTree = "<group>"; };
 		639B688F1A24370E00FAD04E /* addimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addimage.jpg; path = ../../../../../../Desktop/addimage.jpg; sourceTree = "<group>"; };
+		639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteTextField.h; sourceTree = "<group>"; };
+		639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteTextField.m; sourceTree = "<group>"; };
 		639D69A01A27D40C00F65960 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		63AA3FB91A28D40C00355216 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,8 @@
 				6400DDF0180C5DE000443362 /* Images.xcassets */,
 				6400DDDF180C5DE000443362 /* Supporting Files */,
 				630DE81C1A1E6AC5000F2ACC /* Main.storyboard */,
+				639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */,
+				639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */,
 				639D69A01A27D40C00F65960 /* DetailViewController.h */,
 				639D69A11A27D40C00F65960 /* DetailViewController.m */,
 				6342081E1A26B5A300BDC242 /* TableViewController.h */,
@@ -222,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */,
+				639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */,
 				634208201A26B5A300BDC242 /* TableViewController.m in Sources */,
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
