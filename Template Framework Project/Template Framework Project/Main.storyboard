@@ -211,7 +211,7 @@
                                 <rect key="frame" x="215" y="108" width="369" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sau-FN-T5O">
                                 <rect key="frame" x="139" y="72" width="445" height="29"/>
@@ -238,7 +238,7 @@
                                 <rect key="frame" x="215" y="141" width="369" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdz-WP-iO3">
                                 <rect key="frame" x="327" y="219" width="237" height="162"/>
@@ -353,7 +353,39 @@
             </objects>
             <point key="canvasLocation" x="260" y="368"/>
         </scene>
-        <!--Receipts-->
+        <!--View Controller-->
+        <scene sceneID="0Va-dM-BGi">
+            <objects>
+                <viewController id="3dk-AW-vaE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OWB-wC-2mh"/>
+                        <viewControllerLayoutGuide type="bottom" id="zjM-Ly-X3t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5oo-Al-iIn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UGl-jH-94p">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Y78-Oy-y4u">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                            <connections>
+                                <segue destination="59b-gG-YuP" kind="show" id="LdP-KT-5T7"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2L-Is-DiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-462" y="-334"/>
+        </scene>
+        <!--Table View Controller-->
         <scene sceneID="qx0-3f-IgX">
             <objects>
                 <tableViewController id="59b-gG-YuP" customClass="TableViewController" sceneMemberID="viewController">
@@ -377,7 +409,19 @@
                             <outlet property="delegate" destination="59b-gG-YuP" id="h2L-TB-1Ky"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Receipts" id="rYE-dX-sFW">
+                    <navigationItem key="navigationItem" id="rYE-dX-sFW">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="icS-ZC-wkq">
+                            <rect key="frame" x="210" y="7" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Summary"/>
+                                <segment title="Log"/>
+                            </segments>
+                            <connections>
+                                <segue destination="3dk-AW-vaE" kind="show" id="zGg-Gq-28j"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hwy-FO-v8j">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -388,7 +432,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxs-YE-aIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-462" y="359"/>
+            <point key="canvasLocation" x="-428" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uHU-o4-BHZ">
@@ -415,7 +459,8 @@
         <image name="addimage.jpg" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0WK-pf-UZy"/>
+        <segue reference="qUU-7J-X0h"/>
+        <segue reference="vJR-wq-B11"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

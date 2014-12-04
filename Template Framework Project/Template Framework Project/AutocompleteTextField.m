@@ -37,6 +37,15 @@
     [self complete];
 }
 
+- (void)handleReturn
+{
+    if(self.autocompleted) {
+        self.attributedText = [[NSAttributedString alloc] initWithString:self.text];
+        self.userString = [self.attributedText string];
+        self.autocompleted = NO;
+    }
+}
+
 
 - (void)complete
 {
@@ -45,7 +54,7 @@
     if (endString != nil)
     {
         self.autocompleted = YES;
-        UIColor *hightlightColor = [UIColor colorWithRed:0.8f green:0.87f blue:0.93f alpha:1.f];
+        UIColor *hightlightColor = [UIColor colorWithRed:0.702 green:0.847 blue:0.992 alpha:1];
         NSRange highlightRange = NSMakeRange(self.userString.length, endString.length);
         NSMutableAttributedString *completion = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@", self.userString, endString]];
         [completion addAttribute:NSBackgroundColorAttributeName value:hightlightColor range:highlightRange];
@@ -64,6 +73,10 @@
 
 - (CGRect)caretRectForPosition:(UITextPosition *)position
 {
+    if (self.autocompleted)
+    {
+       return CGRectZero;
+    }
     return [super caretRectForPosition:position];
 }
 

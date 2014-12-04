@@ -46,8 +46,8 @@
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
     
     // Set data for pickers
-    paymentData = @[@"Cash", @"Credit", @"Debit", @"Check"];
-    categoryData = @[@"Entertainment", @"Pharmacy", @"Clothing", @"Bananas", @"Cats"];
+    paymentData = @[@"Cash", @"Check", @"Credit", @"Debit"];
+    categoryData = @[@"Clothing", @"Entertainment", @"Food", @"Household", @"Income", @"Miscellaneous", @"Pharmacy", @"Travel"];
 
     // Connect data to pickers
     self.paymentPicker.dataSource = self;
@@ -322,6 +322,11 @@
 // Close the keyboard if you press the "done" button on the keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (textField.tag == PAYEE_FIELD)
+    {
+        [(AutocompleteTextField*)textField handleReturn];
+    }
+    
     [textField resignFirstResponder];
     return YES;
 }
@@ -391,14 +396,30 @@
 #pragma mark - AutocompleteTextField Delegate
 - (NSString *)suggestionForString:(NSString *)inputString
 {
-    NSString *completedString = @"David Malan";
-    NSRange originStringRange = [completedString rangeOfString:inputString];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
     
-    completedString = [completedString substringFromIndex:self.payeeField.userString.length];
+    NSString *match = [NSString stringWithFormat:@"%@*", inputString];
     
-    if (originStringRange.location != 0 || [completedString isEqualToString:@""]) {
-        completedString = nil;
+    [request setPredicate:[NSPredicate predicateWithFormat:@"payee LIKE[cd] %@", match]];
+    [request setFetchLimit:1];
+    NSArray *data = [context executeFetchRequest:request error:nil];
+    
+    NSString *completedString = nil;
+    
+    if ([data count] != 0)
+    {
+        completedString = [data[0] payee];
+        
+        completedString = [completedString substringFromIndex:self.payeeField.userString.length];
+        
+        if ([completedString isEqualToString:@""]) {
+            completedString = nil;
+        }
+        
+        [self.categoryPicker selectRow:[categoryData indexOfObject:[[data[0] details]category]] inComponent:0 animated:YES];
     }
+
 
     return completedString;
 

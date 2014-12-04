@@ -24,5 +24,6 @@
 
 - (void)complete;
 - (void)uncomplete;
+- (void)handleReturn;
 
 @end
