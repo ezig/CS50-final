@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
 
-@interface SummaryViewController : UIViewController
+@interface SummaryViewController : UIViewController <CPTPlotDataSource>
 
 @end

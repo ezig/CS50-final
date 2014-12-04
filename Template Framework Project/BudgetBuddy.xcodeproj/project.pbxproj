@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630DE81C1A1E6AC5000F2ACC /* Main.storyboard */; };
 		630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630E746A1A293B7100FF4AE2 /* Launch Screen.xib */; };
+		6314ACE91A30DE9700DB9546 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACE81A30DE9700DB9546 /* QuartzCore.framework */; };
+		6314ACEB1A30DE9C00DB9546 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */; };
+		6314ACEC1A30DEBA00DB9546 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACE41A30DD8800DB9546 /* libCorePlot-CocoaTouch.a */; };
 		634208201A26B5A300BDC242 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6342081F1A26B5A300BDC242 /* TableViewController.m */; };
 		63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A391A29061F003DE640 /* ReceiptDetails.m */; };
 		63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A3C1A29061F003DE640 /* ReceiptInfo.m */; };
@@ -18,6 +21,8 @@
 		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
 		63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AA3FB91A28D40C00355216 /* CoreData.framework */; };
 		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
+		63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBB3571A302FB900FA865D /* TabBarViewController.m */; };
+		63FBB35A1A30331500FA865D /* AddPictureGray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63FBB3591A30331500FA865D /* AddPictureGray.jpg */; };
 		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
 		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
 		6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDC180C5DE000443362 /* UIKit.framework */; };
@@ -32,9 +37,29 @@
 		64E40AB1180C6D4D00C36DDE /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6314ACE31A30DD8800DB9546 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		6314ACE51A30DD9700DB9546 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		630E746A1A293B7100FF4AE2 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
+		6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		6314ACE81A30DE9700DB9546 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		6342081E1A26B5A300BDC242 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		6342081F1A26B5A300BDC242 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		63433A381A29061F003DE640 /* ReceiptDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptDetails.h; sourceTree = "<group>"; };
@@ -50,6 +75,9 @@
 		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		63AA3FB91A28D40C00355216 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetBuddy.xcdatamodel; sourceTree = "<group>"; };
+		63FBB3561A302FB900FA865D /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		63FBB3571A302FB900FA865D /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		63FBB3591A30331500FA865D /* AddPictureGray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AddPictureGray.jpg; path = ../../../../../../Desktop/AddPictureGray.jpg; sourceTree = "<group>"; };
 		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400DDD8180C5DE000443362 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6400DDDA180C5DE000443362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6314ACEC1A30DEBA00DB9546 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				6314ACEB1A30DE9C00DB9546 /* Accelerate.framework in Frameworks */,
+				6314ACE91A30DE9700DB9546 /* QuartzCore.framework in Frameworks */,
 				63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */,
 				64907490198A5CD500D728CC /* CoreImage.framework in Frameworks */,
 				6420626F1846105200EE2AD4 /* TesseractOCR.framework in Frameworks */,
@@ -88,9 +119,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6314ACDE1A30DD8800DB9546 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6314ACE41A30DD8800DB9546 /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6400DDCC180C5DE000443362 = {
 			isa = PBXGroup;
 			children = (
+				6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */,
 				6400DDDE180C5DE000443362 /* BudgetBuddy Project */,
 				6400DDD7180C5DE000443362 /* Frameworks */,
 				6400DDD6180C5DE000443362 /* Products */,
@@ -108,6 +148,8 @@
 		6400DDD7180C5DE000443362 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */,
+				6314ACE81A30DE9700DB9546 /* QuartzCore.framework */,
 				63AA3FB91A28D40C00355216 /* CoreData.framework */,
 				6490748F198A5CD500D728CC /* CoreImage.framework */,
 				64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */,
@@ -137,6 +179,8 @@
 				6400DDF0180C5DE000443362 /* Images.xcassets */,
 				6400DDDF180C5DE000443362 /* Supporting Files */,
 				630DE81C1A1E6AC5000F2ACC /* Main.storyboard */,
+				63FBB3561A302FB900FA865D /* TabBarViewController.h */,
+				63FBB3571A302FB900FA865D /* TabBarViewController.m */,
 				6398AAB41A3014BB00552FFC /* SummaryViewController.h */,
 				6398AAB51A3014BB00552FFC /* SummaryViewController.m */,
 				639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */,
@@ -154,6 +198,7 @@
 		6400DDDF180C5DE000443362 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63FBB3591A30331500FA865D /* AddPictureGray.jpg */,
 				6400DDE0180C5DE000443362 /* BudgetBuddy-Info.plist */,
 				6400DDE1180C5DE000443362 /* InfoPlist.strings */,
 				6400DDE4180C5DE000443362 /* main.m */,
@@ -176,6 +221,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6314ACE61A30DD9700DB9546 /* PBXTargetDependency */,
 			);
 			name = BudgetBuddy;
 			productName = "Template Framework Project";
@@ -203,12 +249,28 @@
 			mainGroup = 6400DDCC180C5DE000443362;
 			productRefGroup = 6400DDD6180C5DE000443362 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6314ACDE1A30DD8800DB9546 /* Products */;
+					ProjectRef = 6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6400DDD4180C5DE000443362 /* BudgetBuddy */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6314ACE41A30DD8800DB9546 /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 6314ACE31A30DD8800DB9546 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6400DDD3180C5DE000443362 /* Resources */ = {
@@ -217,6 +279,7 @@
 			files = (
 				6400DDF1180C5DE000443362 /* Images.xcassets in Resources */,
 				639B68901A24370E00FAD04E /* addimage.jpg in Resources */,
+				63FBB35A1A30331500FA865D /* AddPictureGray.jpg in Resources */,
 				630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */,
 				64DDA75B188FD9140025590D /* tessdata in Resources */,
 				6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */,
@@ -238,6 +301,7 @@
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
 				63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */,
+				63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */,
 				63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */,
 				6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */,
 				639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */,
@@ -245,6 +309,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6314ACE61A30DD9700DB9546 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 6314ACE51A30DD9700DB9546 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6400DDE1180C5DE000443362 /* InfoPlist.strings */ = {
@@ -345,9 +417,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template Framework Project/BudgetBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../core-plot/framework/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Template Framework Project/BudgetBuddy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = BudgetBuddy;
 				WRAPPER_EXTENSION = app;
 			};
@@ -364,9 +445,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Template Framework Project/BudgetBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../core-plot/framework/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Template Framework Project/BudgetBuddy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = BudgetBuddy;
 				WRAPPER_EXTENSION = app;
 			};
