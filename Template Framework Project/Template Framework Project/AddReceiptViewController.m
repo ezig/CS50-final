@@ -14,7 +14,7 @@
 #define CAMERA_ALERT 1
 #define CANCEL_ALERT 2
 #define INVALID_ALERT 3
-
+#define PAYEE_FIELD 1
 @interface AddReceiptViewController ()
 {
     NSArray *categoryData;
@@ -326,18 +326,36 @@
     return YES;
 }
 
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    AutocompleteTextField* field = (AutocompleteTextField*)textField;
-    if (textField.tag == 1)
+    if (textField.tag == PAYEE_FIELD)
     {
-        [field uncomplete];
-        field.userString = [NSString stringWithFormat:@"%@%@", field.userString,string];
-        [field complete];
+        if (range.length == 1  && string.length == 0)
+        {
+            if (!self.payeeField.autocompleted) {
+                UITextPosition *cursor = [textField positionFromPosition:
+                                          self.payeeField.beginningOfDocument offset:range.location];
+                
+                [self.payeeField uncomplete];
+                NSString *oldText = [[NSString alloc] initWithString:self.payeeField.userString];
+                self.payeeField.userString = [NSString stringWithFormat:@"%@%@",
+                [oldText substringToIndex:range.location], [oldText substringFromIndex:range.location+1]];
+                self.payeeField.text = self.payeeField.userString;
+                
+                [self.payeeField setSelectedTextRange:[self.payeeField textRangeFromPosition:cursor toPosition:cursor]];
+            } else {
+                [self.payeeField uncomplete];
+            }
+            
+        return NO;
+        }
+        //self.payeeField.userString = NSStringBy
     }
+    
     return YES;
 }
+
+
 #pragma mark - UIPickerViewDataSource Delegate
 
 // Each picker view only has one component
@@ -376,10 +394,12 @@
     NSString *completedString = @"David Malan";
     NSRange originStringRange = [completedString rangeOfString:inputString];
     
-    if (originStringRange.location != 0) {
+    completedString = [completedString substringFromIndex:self.payeeField.userString.length];
+    
+    if (originStringRange.location != 0 || [completedString isEqualToString:@""]) {
         completedString = nil;
     }
-    
+
     return completedString;
 
 }

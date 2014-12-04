@@ -20,6 +20,7 @@
 @property(nonatomic,assign) id delegate;
 @property (nonatomic, retain) NSString *userString;
 @property (nonatomic, retain) NSString *completionString;
+@property (nonatomic, assign) BOOL autocompleted;
 
 - (void)complete;
 - (void)uncomplete;
