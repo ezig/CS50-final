@@ -155,6 +155,8 @@
     NSArray* descriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:descriptors];
     
+    
+    
     tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
     
     tableDict = [[NSMutableDictionary alloc] init];

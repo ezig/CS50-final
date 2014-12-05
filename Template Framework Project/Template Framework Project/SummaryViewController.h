@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
+#import "ReceiptInfo.h"
+#import "ReceiptDetails.h"
+
 
 @interface SummaryViewController : UIViewController <CPTPlotDataSource>
 
