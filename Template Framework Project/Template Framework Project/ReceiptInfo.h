@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
 @class ReceiptDetails;
 
 @interface ReceiptInfo : NSManagedObject
@@ -20,5 +21,8 @@
 @property (nonatomic, retain) NSString * payee;
 @property (nonatomic, retain) NSString * expenseType;
 @property (nonatomic, retain) ReceiptDetails *details;
+
+-(NSString *) month;
+-(NSString *) year;
 
 @end

@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"2");
     // Do any additional setup after loading the view.
     UITabBarItem *log = [self.tabBar.items objectAtIndex:0];
     UITabBarItem *summary = [self.tabBar.items objectAtIndex:1];

@@ -13,7 +13,4 @@
 
 @interface TableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic,strong) NSMutableArray* receiptData;
-
 @end

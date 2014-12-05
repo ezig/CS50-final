@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630C1E321A323D8A00187319 /* SummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C1E311A323D8A00187319 /* SummaryTableViewController.m */; };
 		630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630DE81C1A1E6AC5000F2ACC /* Main.storyboard */; };
 		630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630E746A1A293B7100FF4AE2 /* Launch Screen.xib */; };
 		6314ACE91A30DE9700DB9546 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACE81A30DE9700DB9546 /* QuartzCore.framework */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		630C1E301A323D8A00187319 /* SummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryTableViewController.h; sourceTree = "<group>"; };
+		630C1E311A323D8A00187319 /* SummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryTableViewController.m; sourceTree = "<group>"; };
 		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		630E746A1A293B7100FF4AE2 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		6314ACDD1A30DD8800DB9546 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				639D69A11A27D40C00F65960 /* DetailViewController.m */,
 				6342081E1A26B5A300BDC242 /* TableViewController.h */,
 				6342081F1A26B5A300BDC242 /* TableViewController.m */,
+				630C1E301A323D8A00187319 /* SummaryTableViewController.h */,
+				630C1E311A323D8A00187319 /* SummaryTableViewController.m */,
 				639B688F1A24370E00FAD04E /* addimage.jpg */,
 			);
 			name = "BudgetBuddy Project";
@@ -298,6 +303,7 @@
 				639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */,
 				634208201A26B5A300BDC242 /* TableViewController.m in Sources */,
 				6398AAB61A3014BB00552FFC /* SummaryViewController.m in Sources */,
+				630C1E321A323D8A00187319 /* SummaryTableViewController.m in Sources */,
 				6400DDE5180C5DE000443362 /* main.m in Sources */,
 				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
 				63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */,

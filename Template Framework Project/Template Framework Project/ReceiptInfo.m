@@ -27,6 +27,20 @@
     return [dateFormatter stringFromDate:self.date];
 }
 
+-(NSString *) month
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"LLLL"];
+    return [dateFormatter stringFromDate:self.date];
+}
+
+-(NSString *) year
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"y"];
+    return [dateFormatter stringFromDate:self.date];
+}
+
 -(NSString *) tableText
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
