@@ -8,6 +8,7 @@
 
 #import "SummaryTableViewController.h"
 #import "ReceiptInfo.h"
+#import "SummaryViewController.h"
 
 @interface SummaryTableViewController ()
 {
@@ -54,12 +55,15 @@
 
 // Open up add receipt view if + buton is pressed
 // Pass on the selected receipt to the show detail view if receipt data selected
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"showSummary"]) {
-//
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showSummary"]) {
+        SummaryViewController* view = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        view.year = [sectionTitles objectAtIndex:indexPath.section];
+        view.month = [[tableDict objectForKey:view.year] objectAtIndex:indexPath.row];
+    }
+}
 
 #pragma mark - UITableView Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -84,9 +88,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Try to reuse cells when possible, otherwise create a new one
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SummaryCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Summary"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SummaryCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Summary"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
@@ -150,8 +154,12 @@
     
     tableDict = [[NSMutableDictionary alloc] init];
     for (ReceiptInfo* info in tableData) {
-        if([tableDict objectForKey:[info year]] != nil) {
-            [[tableDict objectForKey:[info year]] addObject:[info month]];
+        if([tableDict objectForKey:[info year]] != nil)
+        {
+            if([[tableDict objectForKey:[info year]] indexOfObject:[info month]] == NSNotFound)
+            {
+                [[tableDict objectForKey:[info year]] addObject:[info month]];
+            }
         } else {
             [tableDict setValue:[[NSMutableArray alloc] initWithObjects:[info month], nil] forKey:[info year]];
         }

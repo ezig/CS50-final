@@ -11,6 +11,8 @@
 @interface SummaryViewController ()
 {
     double pieData[7];
+    double inflow;
+    double outflow;
     NSArray *titles;
     CPTGraph *pieGraph;
 }
@@ -29,27 +31,18 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = [[NSString alloc] initWithFormat:@"%@ %@", self.month, self.year];
     // Do any additional setup after loading the view.
     // We need a hostview, you can create one in IB (and create an outlet) or just do this:
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    scroll.pagingEnabled = YES;
     
     CGRect frame = self.view.frame;
-    frame.size.height /= 4;
-    UIView *monthInfo = [[UIView alloc] initWithFrame:frame];
-    [self.view addSubview: monthInfo];
-    
+    frame.size.height /= 3;
     frame.origin.y = frame.size.height;
-    frame.size.height *= 2;
+
     
     CPTGraphHostingView* monthPieView = [[CPTGraphHostingView alloc] initWithFrame:frame];
     [self.view addSubview: monthPieView];
     
-    [scroll addSubview: monthInfo];
-    [scroll addSubview: monthPieView];
-    
-    scroll.contentSize = CGSizeMake(self.view.frame.size.width, 3/2.0*self.view.frame.size.height);
-    [self.view addSubview:scroll];
     
     pieGraph = [[CPTXYGraph alloc] initWithFrame:monthPieView.bounds];
     pieGraph.axisSet = nil;
@@ -66,25 +59,62 @@
     [pieGraph addPlot:pieChart];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reload];
+}
 
+
+- (void)reload
+{
     for (int i = 0; i < 7; i++) {
         pieData[i] = 0;
     }
     
-    NSArray *data = [self entriesfromDate:[NSDate dateWithTimeIntervalSince1970:0.0] toDate:[NSDate date]];
+    inflow = 0;
+    outflow = 0;
+    
+    // forget about leap years
+    NSDictionary *daysInMonth = [[NSDictionary alloc] initWithObjects:@[@31,@28,@31,@30,@31,@30,@31,@31,@30,@31,@30,@31]forKeys:@[@"January",@"February",@"March",@"April",@"May",@"June",@"July",@"August",@"September",@"October",@"November",@"December"]];
+    
+    NSString *dateString = [[NSString alloc] initWithFormat:@"%@ 01 %@", self.month, self.year];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM dd yyyy"];
+    NSDate *dateFrom = [dateFormat dateFromString:dateString];
+    
+    dateString = [[NSString alloc] initWithFormat:@"%@ %d %@", self.month, [[daysInMonth objectForKey:self.month] intValue], self.year];
+    NSDate *dateTo = [dateFormat dateFromString:dateString];
+    
+    NSArray *data = [self entriesfromDate:dateFrom toDate:dateTo];
     
     titles = @[@"Entertainment", @"Clothing", @"Food", @"Household", @"Miscellaneous", @"Pharmacy", @"Travel"];
-
+    
     for (id obj in data) {
-        ReceiptDetails* details = [obj details];
-        pieData[[titles indexOfObject:[details category]]] += [[obj amount] doubleValue];
+        if ([[obj expenseType] isEqualToString:@"Outflow"]) {
+            ReceiptDetails* details = [obj details];
+            pieData[[titles indexOfObject:[details category]]] += [[obj amount] doubleValue];
+            outflow += [[obj amount] doubleValue];
+        } else {
+            inflow += [[obj amount] doubleValue];
+        }
     }
     
-
-    
     [pieGraph reloadData];
+    
+
+    self.outflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", outflow] attributes:[NSDictionary dictionaryWithObject:[UIColor redColor] forKey:NSForegroundColorAttributeName]];
+    self.inflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", inflow] attributes:[NSDictionary dictionaryWithObject:[UIColor greenColor] forKey:NSForegroundColorAttributeName]];
+    UIColor *netColor;
+    
+    if (outflow > inflow) {
+        netColor = [UIColor redColor];
+    }
+    else {
+        netColor = [UIColor greenColor];
+    }
+    
+    self.netLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", inflow-outflow] attributes:[NSDictionary dictionaryWithObject:netColor forKey:NSForegroundColorAttributeName]];
 }
 
 -(CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index
@@ -116,7 +146,7 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"ReceiptInfo"];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"date >= %@ && date <= %@ && expenseType LIKE 'Outflow'", fromDate, toDate];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"date >= %@ && date <= %@", fromDate, toDate];
     request.predicate = predicate;
     
     NSArray *data = [context executeFetchRequest:request error:nil];

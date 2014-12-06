@@ -22,6 +22,11 @@
     UITabBarItem *summary = [self.tabBar.items objectAtIndex:1];
     [log setTitle:@"Log"];
     [summary setTitle:@"Summary"];
+    log.selectedImage = [[UIImage imageNamed:@"LogIconBlue.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+     log.image = [[UIImage imageNamed:@"LogIconGray.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    summary.selectedImage = [[UIImage imageNamed:@"ChartIconBlue.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    summary.image = [[UIImage imageNamed:@"ChartIconGray.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     //[self.tabBar setBackgroundColor:[UIColor colorWithRed:0.11 green:0.671 blue:0.843 alpha:1]]; /*#1cabd7*/
      
 }

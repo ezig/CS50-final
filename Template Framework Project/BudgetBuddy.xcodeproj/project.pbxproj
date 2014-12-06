@@ -17,9 +17,14 @@
 		63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A391A29061F003DE640 /* ReceiptDetails.m */; };
 		63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A3C1A29061F003DE640 /* ReceiptInfo.m */; };
 		6398AAB61A3014BB00552FFC /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398AAB51A3014BB00552FFC /* SummaryViewController.m */; };
-		639B68901A24370E00FAD04E /* addimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639B688F1A24370E00FAD04E /* addimage.jpg */; };
 		639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */; };
 		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
+		63A9EE811A32DFD00022272D /* AddPictureGray3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE801A32DFD00022272D /* AddPictureGray3.jpg */; };
+		63A9EE831A32E0790022272D /* AddPictureGray2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE821A32E0790022272D /* AddPictureGray2.jpg */; };
+		63A9EE881A32E76B0022272D /* LogIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE841A32E76B0022272D /* LogIconBlue.png */; };
+		63A9EE891A32E76B0022272D /* LogIconGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE851A32E76B0022272D /* LogIconGray.png */; };
+		63A9EE8A1A32E76B0022272D /* ChartIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE861A32E76B0022272D /* ChartIconBlue.png */; };
+		63A9EE8B1A32E76B0022272D /* ChartIconGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A9EE871A32E76B0022272D /* ChartIconGray.png */; };
 		63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AA3FB91A28D40C00355216 /* CoreData.framework */; };
 		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
 		63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBB3571A302FB900FA865D /* TabBarViewController.m */; };
@@ -71,11 +76,16 @@
 		63433A3C1A29061F003DE640 /* ReceiptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptInfo.m; sourceTree = "<group>"; };
 		6398AAB41A3014BB00552FFC /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
 		6398AAB51A3014BB00552FFC /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
-		639B688F1A24370E00FAD04E /* addimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = addimage.jpg; path = ../../../../../../Desktop/addimage.jpg; sourceTree = "<group>"; };
 		639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteTextField.h; sourceTree = "<group>"; };
 		639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteTextField.m; sourceTree = "<group>"; };
 		639D69A01A27D40C00F65960 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		63A9EE801A32DFD00022272D /* AddPictureGray3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AddPictureGray3.jpg; path = ../../../../../../Desktop/AddPictureGray3.jpg; sourceTree = "<group>"; };
+		63A9EE821A32E0790022272D /* AddPictureGray2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AddPictureGray2.jpg; path = ../../../../../../Desktop/AddPictureGray2.jpg; sourceTree = "<group>"; };
+		63A9EE841A32E76B0022272D /* LogIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LogIconBlue.png; path = ../../../../../../Desktop/LogIconBlue.png; sourceTree = "<group>"; };
+		63A9EE851A32E76B0022272D /* LogIconGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LogIconGray.png; path = ../../../../../../Desktop/LogIconGray.png; sourceTree = "<group>"; };
+		63A9EE861A32E76B0022272D /* ChartIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChartIconBlue.png; path = ../../../../../../Desktop/ChartIconBlue.png; sourceTree = "<group>"; };
+		63A9EE871A32E76B0022272D /* ChartIconGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChartIconGray.png; path = ../../../../../../Desktop/ChartIconGray.png; sourceTree = "<group>"; };
 		63AA3FB91A28D40C00355216 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetBuddy.xcdatamodel; sourceTree = "<group>"; };
 		63FBB3561A302FB900FA865D /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -194,7 +204,6 @@
 				6342081F1A26B5A300BDC242 /* TableViewController.m */,
 				630C1E301A323D8A00187319 /* SummaryTableViewController.h */,
 				630C1E311A323D8A00187319 /* SummaryTableViewController.m */,
-				639B688F1A24370E00FAD04E /* addimage.jpg */,
 			);
 			name = "BudgetBuddy Project";
 			path = "Template Framework Project";
@@ -203,6 +212,12 @@
 		6400DDDF180C5DE000443362 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63A9EE841A32E76B0022272D /* LogIconBlue.png */,
+				63A9EE851A32E76B0022272D /* LogIconGray.png */,
+				63A9EE861A32E76B0022272D /* ChartIconBlue.png */,
+				63A9EE871A32E76B0022272D /* ChartIconGray.png */,
+				63A9EE821A32E0790022272D /* AddPictureGray2.jpg */,
+				63A9EE801A32DFD00022272D /* AddPictureGray3.jpg */,
 				63FBB3591A30331500FA865D /* AddPictureGray.jpg */,
 				6400DDE0180C5DE000443362 /* BudgetBuddy-Info.plist */,
 				6400DDE1180C5DE000443362 /* InfoPlist.strings */,
@@ -242,6 +257,11 @@
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					6400DDD4180C5DE000443362 = {
+						DevelopmentTeam = 86E3WCASLJ;
+					};
+				};
 			};
 			buildConfigurationList = 6400DDD0180C5DE000443362 /* Build configuration list for PBXProject "BudgetBuddy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -282,12 +302,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A9EE811A32DFD00022272D /* AddPictureGray3.jpg in Resources */,
 				6400DDF1180C5DE000443362 /* Images.xcassets in Resources */,
-				639B68901A24370E00FAD04E /* addimage.jpg in Resources */,
 				63FBB35A1A30331500FA865D /* AddPictureGray.jpg in Resources */,
 				630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */,
+				63A9EE831A32E0790022272D /* AddPictureGray2.jpg in Resources */,
+				63A9EE8A1A32E76B0022272D /* ChartIconBlue.png in Resources */,
 				64DDA75B188FD9140025590D /* tessdata in Resources */,
 				6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */,
+				63A9EE881A32E76B0022272D /* LogIconBlue.png in Resources */,
+				63A9EE891A32E76B0022272D /* LogIconGray.png in Resources */,
+				63A9EE8B1A32E76B0022272D /* ChartIconGray.png in Resources */,
 				630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
