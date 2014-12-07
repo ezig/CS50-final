@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		630C1E321A323D8A00187319 /* SummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C1E311A323D8A00187319 /* SummaryTableViewController.m */; };
+		630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630DE81C1A1E6AC5000F2ACC /* Main.storyboard */; };
+		630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630E746A1A293B7100FF4AE2 /* Launch Screen.xib */; };
+		6314ACE91A30DE9700DB9546 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACE81A30DE9700DB9546 /* QuartzCore.framework */; };
+		6314ACEB1A30DE9C00DB9546 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */; };
+		634208201A26B5A300BDC242 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6342081F1A26B5A300BDC242 /* TableViewController.m */; };
+		63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A391A29061F003DE640 /* ReceiptDetails.m */; };
+		63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63433A3C1A29061F003DE640 /* ReceiptInfo.m */; };
+		6398AAB61A3014BB00552FFC /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6398AAB51A3014BB00552FFC /* SummaryViewController.m */; };
+		639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */; };
+		639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639D69A11A27D40C00F65960 /* DetailViewController.m */; };
+		63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AA3FB91A28D40C00355216 /* CoreData.framework */; };
+		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
+		63BCD1411A33EFF000C5AD2F /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 63BCD13F1A33EFF000C5AD2F /* Images */; };
+		63BCD1611A33F3F300C5AD2F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BCD15E1A33F3CF00C5AD2F /* libCorePlot-CocoaTouch.a */; };
+		63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBB3571A302FB900FA865D /* TabBarViewController.m */; };
+		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
+		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
+		6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDC180C5DE000443362 /* UIKit.framework */; };
+		6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6400DDE1180C5DE000443362 /* InfoPlist.strings */; };
+		6400DDE5180C5DE000443362 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDE4180C5DE000443362 /* main.m */; };
+		6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDE8180C5DE000443362 /* AppDelegate.m */; };
+		6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400DDEE180C5DE000443362 /* AddReceiptViewController.m */; };
+		6400DDF1180C5DE000443362 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6400DDF0180C5DE000443362 /* Images.xcassets */; };
+		6420626F1846105200EE2AD4 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6420626E1846105200EE2AD4 /* TesseractOCR.framework */; };
+		64907490198A5CD500D728CC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6490748F198A5CD500D728CC /* CoreImage.framework */; };
+		64DDA75B188FD9140025590D /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 64DDA75A188FD9140025590D /* tessdata */; };
+		64E40AB1180C6D4D00C36DDE /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63BCD15D1A33F3CF00C5AD2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		63BCD15F1A33F3DF00C5AD2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		630C1E301A323D8A00187319 /* SummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryTableViewController.h; sourceTree = "<group>"; };
+		630C1E311A323D8A00187319 /* SummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryTableViewController.m; sourceTree = "<group>"; };
+		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		630E746A1A293B7100FF4AE2 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
+		6314ACE81A30DE9700DB9546 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6342081E1A26B5A300BDC242 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		6342081F1A26B5A300BDC242 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		63433A381A29061F003DE640 /* ReceiptDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptDetails.h; sourceTree = "<group>"; };
+		63433A391A29061F003DE640 /* ReceiptDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptDetails.m; sourceTree = "<group>"; };
+		63433A3B1A29061F003DE640 /* ReceiptInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptInfo.h; sourceTree = "<group>"; };
+		63433A3C1A29061F003DE640 /* ReceiptInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptInfo.m; sourceTree = "<group>"; };
+		6398AAB41A3014BB00552FFC /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		6398AAB51A3014BB00552FFC /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteTextField.h; sourceTree = "<group>"; };
+		639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteTextField.m; sourceTree = "<group>"; };
+		639D69A01A27D40C00F65960 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		639D69A11A27D40C00F65960 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		63AA3FB91A28D40C00355216 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetBuddy.xcdatamodel; sourceTree = "<group>"; };
+		63BCD13F1A33EFF000C5AD2F /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		63FBB3561A302FB900FA865D /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		63FBB3571A302FB900FA865D /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6400DDD8180C5DE000443362 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6400DDDA180C5DE000443362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6400DDDC180C5DE000443362 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6400DDE0180C5DE000443362 /* BudgetBuddy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BudgetBuddy-Info.plist"; sourceTree = "<group>"; };
+		6400DDE2180C5DE000443362 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6400DDE4180C5DE000443362 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6400DDE6180C5DE000443362 /* BudgetBuddy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BudgetBuddy-Prefix.pch"; sourceTree = "<group>"; };
+		6400DDE7180C5DE000443362 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6400DDE8180C5DE000443362 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6400DDED180C5DE000443362 /* AddReceiptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddReceiptViewController.h; sourceTree = "<group>"; };
+		6400DDEE180C5DE000443362 /* AddReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddReceiptViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		6400DDF0180C5DE000443362 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6400DDF7180C5DE000443362 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6420626E1846105200EE2AD4 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = ../Products/TesseractOCR.framework; sourceTree = "<group>"; };
+		6490748F198A5CD500D728CC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		64DDA75A188FD9140025590D /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6400DDD2180C5DE000443362 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63BCD1611A33F3F300C5AD2F /* libCorePlot-CocoaTouch.a in Frameworks */,
+				6314ACEB1A30DE9C00DB9546 /* Accelerate.framework in Frameworks */,
+				6314ACE91A30DE9700DB9546 /* QuartzCore.framework in Frameworks */,
+				63AA3FBA1A28D40C00355216 /* CoreData.framework in Frameworks */,
+				64907490198A5CD500D728CC /* CoreImage.framework in Frameworks */,
+				6420626F1846105200EE2AD4 /* TesseractOCR.framework in Frameworks */,
+				64E40AB1180C6D4D00C36DDE /* libstdc++.6.0.9.dylib in Frameworks */,
+				6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */,
+				6400DDDD180C5DE000443362 /* UIKit.framework in Frameworks */,
+				6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63BCD1581A33F3CF00C5AD2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63BCD15E1A33F3CF00C5AD2F /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6400DDCC180C5DE000443362 = {
+			isa = PBXGroup;
+			children = (
+				63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */,
+				6400DDDE180C5DE000443362 /* BudgetBuddy Project */,
+				6400DDD7180C5DE000443362 /* Frameworks */,
+				6400DDD6180C5DE000443362 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6400DDD6180C5DE000443362 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6400DDD5180C5DE000443362 /* BudgetBuddy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6400DDD7180C5DE000443362 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6314ACEA1A30DE9C00DB9546 /* Accelerate.framework */,
+				6314ACE81A30DE9700DB9546 /* QuartzCore.framework */,
+				63AA3FB91A28D40C00355216 /* CoreData.framework */,
+				6490748F198A5CD500D728CC /* CoreImage.framework */,
+				64E40AB0180C6D4D00C36DDE /* libstdc++.6.0.9.dylib */,
+				6420626E1846105200EE2AD4 /* TesseractOCR.framework */,
+				6400DDD8180C5DE000443362 /* Foundation.framework */,
+				6400DDDA180C5DE000443362 /* CoreGraphics.framework */,
+				6400DDDC180C5DE000443362 /* UIKit.framework */,
+				6400DDF7180C5DE000443362 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6400DDDE180C5DE000443362 /* BudgetBuddy Project */ = {
+			isa = PBXGroup;
+			children = (
+				630E746A1A293B7100FF4AE2 /* Launch Screen.xib */,
+				63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */,
+				64DDA75A188FD9140025590D /* tessdata */,
+				6400DDE7180C5DE000443362 /* AppDelegate.h */,
+				6400DDE8180C5DE000443362 /* AppDelegate.m */,
+				63433A3B1A29061F003DE640 /* ReceiptInfo.h */,
+				63433A3C1A29061F003DE640 /* ReceiptInfo.m */,
+				63433A381A29061F003DE640 /* ReceiptDetails.h */,
+				63433A391A29061F003DE640 /* ReceiptDetails.m */,
+				6400DDED180C5DE000443362 /* AddReceiptViewController.h */,
+				6400DDEE180C5DE000443362 /* AddReceiptViewController.m */,
+				6400DDF0180C5DE000443362 /* Images.xcassets */,
+				6400DDDF180C5DE000443362 /* Supporting Files */,
+				630DE81C1A1E6AC5000F2ACC /* Main.storyboard */,
+				63FBB3561A302FB900FA865D /* TabBarViewController.h */,
+				63FBB3571A302FB900FA865D /* TabBarViewController.m */,
+				6398AAB41A3014BB00552FFC /* SummaryViewController.h */,
+				6398AAB51A3014BB00552FFC /* SummaryViewController.m */,
+				639CE05B1A2EA2CE00E3B07A /* AutocompleteTextField.h */,
+				639CE05C1A2EA2CE00E3B07A /* AutocompleteTextField.m */,
+				639D69A01A27D40C00F65960 /* DetailViewController.h */,
+				639D69A11A27D40C00F65960 /* DetailViewController.m */,
+				6342081E1A26B5A300BDC242 /* TableViewController.h */,
+				6342081F1A26B5A300BDC242 /* TableViewController.m */,
+				630C1E301A323D8A00187319 /* SummaryTableViewController.h */,
+				630C1E311A323D8A00187319 /* SummaryTableViewController.m */,
+			);
+			name = "BudgetBuddy Project";
+			path = "Budget Buddy Project";
+			sourceTree = "<group>";
+		};
+		6400DDDF180C5DE000443362 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63BCD13F1A33EFF000C5AD2F /* Images */,
+				6400DDE0180C5DE000443362 /* BudgetBuddy-Info.plist */,
+				6400DDE1180C5DE000443362 /* InfoPlist.strings */,
+				6400DDE4180C5DE000443362 /* main.m */,
+				6400DDE6180C5DE000443362 /* BudgetBuddy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6400DDD4180C5DE000443362 /* BudgetBuddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6400DE07180C5DE100443362 /* Build configuration list for PBXNativeTarget "BudgetBuddy" */;
+			buildPhases = (
+				6400DDD1180C5DE000443362 /* Sources */,
+				6400DDD2180C5DE000443362 /* Frameworks */,
+				6400DDD3180C5DE000443362 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63BCD1601A33F3DF00C5AD2F /* PBXTargetDependency */,
+			);
+			name = BudgetBuddy;
+			productName = "Template Framework Project";
+			productReference = 6400DDD5180C5DE000443362 /* BudgetBuddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6400DDCD180C5DE000443362 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					6400DDD4180C5DE000443362 = {
+						DevelopmentTeam = 86E3WCASLJ;
+					};
+				};
+			};
+			buildConfigurationList = 6400DDD0180C5DE000443362 /* Build configuration list for PBXProject "BudgetBuddy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6400DDCC180C5DE000443362;
+			productRefGroup = 6400DDD6180C5DE000443362 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 63BCD1581A33F3CF00C5AD2F /* Products */;
+					ProjectRef = 63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6400DDD4180C5DE000443362 /* BudgetBuddy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		63BCD15E1A33F3CF00C5AD2F /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 63BCD15D1A33F3CF00C5AD2F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6400DDD3180C5DE000443362 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63BCD1411A33EFF000C5AD2F /* Images in Resources */,
+				6400DDF1180C5DE000443362 /* Images.xcassets in Resources */,
+				630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */,
+				64DDA75B188FD9140025590D /* tessdata in Resources */,
+				6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */,
+				630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6400DDD1180C5DE000443362 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */,
+				639CE05D1A2EA2CE00E3B07A /* AutocompleteTextField.m in Sources */,
+				634208201A26B5A300BDC242 /* TableViewController.m in Sources */,
+				6398AAB61A3014BB00552FFC /* SummaryViewController.m in Sources */,
+				630C1E321A323D8A00187319 /* SummaryTableViewController.m in Sources */,
+				6400DDE5180C5DE000443362 /* main.m in Sources */,
+				6400DDE9180C5DE000443362 /* AppDelegate.m in Sources */,
+				63433A3A1A29061F003DE640 /* ReceiptDetails.m in Sources */,
+				63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */,
+				63433A3D1A29061F003DE640 /* ReceiptInfo.m in Sources */,
+				6400DDEF180C5DE000443362 /* AddReceiptViewController.m in Sources */,
+				639D69A21A27D40C00F65960 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63BCD1601A33F3DF00C5AD2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 63BCD15F1A33F3DF00C5AD2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6400DDE1180C5DE000443362 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6400DDE2180C5DE000443362 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6400DE05180C5DE100443362 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-lstdc++";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		6400DE06180C5DE100443362 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-lstdc++";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
+		6400DE08180C5DE100443362 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iOS Development: Ezra Zigmond (VVB4NELBSJ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../Products",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Budget Buddy Project/BudgetBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../core-plot/framework/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "Budget Buddy Project/BudgetBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = BudgetBuddy;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6400DE09180C5DE100443362 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iOS Development: Ezra Zigmond (VVB4NELBSJ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../Products",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Budget Buddy Project/BudgetBuddy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../core-plot/framework/**",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "Budget Buddy Project/BudgetBuddy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
+				PRODUCT_NAME = BudgetBuddy;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6400DDD0180C5DE000443362 /* Build configuration list for PBXProject "BudgetBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6400DE05180C5DE100443362 /* Debug */,
+				6400DE06180C5DE100443362 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6400DE07180C5DE100443362 /* Build configuration list for PBXNativeTarget "BudgetBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6400DE08180C5DE100443362 /* Debug */,
+				6400DE09180C5DE100443362 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */,
+			);
+			currentVersion = 63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */;
+			path = BudgetBuddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6400DDCD180C5DE000443362 /* Project object */;
+}
