@@ -14,7 +14,7 @@
 
 @interface ReceiptInfo : NSManagedObject
 
-@property (nonatomic) NSString * tableText;
+@property (nonatomic) NSAttributedString * tableText;
 @property (nonatomic) NSString * sectionTitle;
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSDate * date;

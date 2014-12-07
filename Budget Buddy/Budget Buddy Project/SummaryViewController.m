@@ -51,7 +51,7 @@
     
     CPTPieChart *pieChart = [[CPTPieChart alloc] init];
     pieChart.dataSource = self;
-    pieChart.pieRadius = 75.0;
+    pieChart.pieRadius = 65.0;
     pieChart.identifier = @"PieChart1";
     pieChart.startAngle = M_PI_4;
     pieChart.sliceDirection = CPTPieDirectionCounterClockwise;
@@ -102,16 +102,18 @@
     
     [pieGraph reloadData];
     
-
-    self.outflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", outflow] attributes:[NSDictionary dictionaryWithObject:[UIColor redColor] forKey:NSForegroundColorAttributeName]];
-    self.inflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", inflow] attributes:[NSDictionary dictionaryWithObject:[UIColor greenColor] forKey:NSForegroundColorAttributeName]];
+    UIColor *green = [UIColor colorWithRed:.888 green:.140 blue:.024 alpha:1];
+    UIColor *red = [UIColor colorWithRed:0.305 green:0.809 blue:.316 alpha:1];
+    
+    self.outflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", outflow] attributes:[NSDictionary dictionaryWithObject:red forKey:NSForegroundColorAttributeName]];
+    self.inflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", inflow] attributes:[NSDictionary dictionaryWithObject:green forKey:NSForegroundColorAttributeName]];
     UIColor *netColor;
     
     if (outflow > inflow) {
-        netColor = [UIColor redColor];
+        netColor = green;
     }
     else {
-        netColor = [UIColor greenColor];
+        netColor = red;
     }
     
     self.netLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", inflow-outflow] attributes:[NSDictionary dictionaryWithObject:netColor forKey:NSForegroundColorAttributeName]];

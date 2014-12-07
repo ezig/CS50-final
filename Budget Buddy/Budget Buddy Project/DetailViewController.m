@@ -69,6 +69,15 @@
          view.info = self.info;
          view.details = self.details;
      }
+    
+    if ([segue.identifier isEqualToString:@"showImage"]) {
+        UIViewController *viewController = segue.destinationViewController;
+        UIView *view = viewController.view;
+        UIImage *image = [UIImage imageWithData:self.details.imageData];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:view.frame];
+        [imageView setImage:image];
+        [view addSubview:imageView];
+    }
 }
 
 @end

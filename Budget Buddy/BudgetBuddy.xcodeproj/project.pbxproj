@@ -22,6 +22,8 @@
 		63AA3FBD1A28D4B300355216 /* BudgetBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */; };
 		63BCD1411A33EFF000C5AD2F /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 63BCD13F1A33EFF000C5AD2F /* Images */; };
 		63BCD1611A33F3F300C5AD2F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BCD15E1A33F3CF00C5AD2F /* libCorePlot-CocoaTouch.a */; };
+		63BCD1641A33FC8B00C5AD2F /* BBSplashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BCD1621A33FC8B00C5AD2F /* BBSplashIcon.png */; };
+		63BCD1651A33FC8B00C5AD2F /* BBSplashIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63BCD1631A33FC8B00C5AD2F /* BBSplashIcon@2x.png */; };
 		63FBB3581A302FB900FA865D /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBB3571A302FB900FA865D /* TabBarViewController.m */; };
 		6400DDD9180C5DE000443362 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDD8180C5DE000443362 /* Foundation.framework */; };
 		6400DDDB180C5DE000443362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6400DDDA180C5DE000443362 /* CoreGraphics.framework */; };
@@ -77,6 +79,8 @@
 		63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetBuddy.xcdatamodel; sourceTree = "<group>"; };
 		63BCD13F1A33EFF000C5AD2F /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		63BCD1571A33F3CF00C5AD2F /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "../core-plot/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		63BCD1621A33FC8B00C5AD2F /* BBSplashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BBSplashIcon.png; path = Images/BBSplashIcon.png; sourceTree = "<group>"; };
+		63BCD1631A33FC8B00C5AD2F /* BBSplashIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BBSplashIcon@2x.png"; path = "Images/BBSplashIcon@2x.png"; sourceTree = "<group>"; };
 		63FBB3561A302FB900FA865D /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		63FBB3571A302FB900FA865D /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		6400DDD5180C5DE000443362 /* BudgetBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +204,8 @@
 		6400DDDF180C5DE000443362 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63BCD1621A33FC8B00C5AD2F /* BBSplashIcon.png */,
+				63BCD1631A33FC8B00C5AD2F /* BBSplashIcon@2x.png */,
 				63BCD13F1A33EFF000C5AD2F /* Images */,
 				6400DDE0180C5DE000443362 /* BudgetBuddy-Info.plist */,
 				6400DDE1180C5DE000443362 /* InfoPlist.strings */,
@@ -284,9 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BCD1651A33FC8B00C5AD2F /* BBSplashIcon@2x.png in Resources */,
 				63BCD1411A33EFF000C5AD2F /* Images in Resources */,
 				6400DDF1180C5DE000443362 /* Images.xcassets in Resources */,
 				630DE81D1A1E6AC5000F2ACC /* Main.storyboard in Resources */,
+				63BCD1641A33FC8B00C5AD2F /* BBSplashIcon.png in Resources */,
 				64DDA75B188FD9140025590D /* tessdata in Resources */,
 				6400DDE3180C5DE000443362 /* InfoPlist.strings in Resources */,
 				630E746B1A293B7100FF4AE2 /* Launch Screen.xib in Resources */,

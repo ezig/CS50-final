@@ -79,6 +79,8 @@
         [self.paymentPicker selectRow:paymentIdx inComponent:0 animated:YES];
         
         self.datePicker.date = self.info.date;
+        
+        self.navigationItem.title = @"Edit Receipt";
     }
 }
 
@@ -149,11 +151,10 @@
     [alert show];
 }
 
-//TODO: MATT JIANG
 // Ensures that the submitted receipt is valid
 -(BOOL)validateInput
 {
-    if ([self.amountField.text length] == 0) {
+    if ([self.amountField.text length] == 0 || [[self.amountField.text componentsSeparatedByString:@"."] count] > 2) {
         [self apologize:@"Invalid Amount"];
         return NO;
     } else if ([self.payeeField.text length] == 0) {

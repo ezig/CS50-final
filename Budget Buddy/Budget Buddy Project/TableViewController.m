@@ -28,6 +28,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
 }
 
@@ -80,10 +81,12 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [sectionTitles objectAtIndex:section];
+    NSArray* months = @[@"January",@"February",@"March",@"April",@"May",@"June",@"July",@"August",@"September",@"October",@"November",@"December"];
+    NSString *sectionName = [sectionTitles objectAtIndex:section];
+    NSArray *components = [sectionName componentsSeparatedByString:@" "];
+    return [NSString stringWithFormat:@"%@ %@",[months objectAtIndex:([components[1] intValue]-1)], components[0]];
 }
 
-//TODO: implement month breaks
 // Returns number of rows in each section
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -104,7 +107,7 @@
     // Get the appropriate datum
     NSArray* arr = [tableDict objectForKey:[sectionTitles objectAtIndex:indexPath.section]];
     ReceiptInfo *receiptInfo = [arr objectAtIndex:indexPath.row];
-    cell.textLabel.text = [receiptInfo tableText];
+    cell.textLabel.attributedText = [receiptInfo tableText];
     return cell;
 }
 
