@@ -2,18 +2,23 @@
 //  ViewController.m
 //  Budget Buddy
 //
-//  Last modified by Ezra on 11/27/14
+//  Last modified by Ezra on 12/6/14
 //  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
 //
-
+//  Form for adding or editing receipts. Can be reached directly from the log to add a receipt
+//  or from the show detail screen in order to edit an existing receipt, in which case the calling
+//  view controller should pass na existing receipt info and details to prepopulate the fields of the form
+//
 #import "AddReceiptViewController.h"
 #import "ReceiptInfo.h"
 #import "ReceiptDetails.h"
 
-// Constants for different alert views
+// Constants for different alert view tags
 #define CAMERA_ALERT 1
 #define CANCEL_ALERT 2
 #define INVALID_ALERT 3
+
+// Tag to keep track of the autocompletion payee field
 #define PAYEE_FIELD 1
 @interface AddReceiptViewController ()
 {
@@ -24,6 +29,7 @@
 
 @implementation AddReceiptViewController
 
+// get the managed object context from the app delegate
 - (NSManagedObjectContext *)managedObjectContext
 {
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -40,7 +46,6 @@
     self.categoryPicker.delegate = self;
     
     self.payeeField.userString = @"";
-    //self.payeeField.completionStrin
     
     // Set gesture recognize to dismiss keyboards
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
@@ -58,14 +63,17 @@
 
     // If the info and detail properties iare set, that means we are editing an existing receipt,
     // so set the fields to the previous properties of the receipt we are editing
-    if (self.info && self.details) {
+    if (self.info && self.details)
+    {
         
         //Populate fields with receipt information
         self.imageView.image = [UIImage imageWithData:self.details.imageData];
         
-        if ([self.info.expenseType isEqualToString:@"Inflow"]) {
+        if ([self.info.expenseType isEqualToString:@"Inflow"])
+        {
             [self.expenseType setSelectedSegmentIndex:0];
-        } else {
+        } else
+        {
             [self.expenseType setSelectedSegmentIndex:1];
         }
         
@@ -128,7 +136,8 @@
     // to the end that starts with a $
     NSUInteger index = [wordArray indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
         // Check if word has valid length and first character is $
-        if ([obj length] > 0 && [obj characterAtIndex:0] == '$') {
+        if ([obj length] > 0 && [obj characterAtIndex:0] == '$')
+        {
             return YES;
         }
         
@@ -139,7 +148,7 @@
     // If a valid amount was found, display it.
     // Otherwise, don't change the text field
     if (index != NSNotFound) {
-        self.amountField.text = wordArray[index];
+        self.amountField.text = [wordArray[index] substringFromIndex:1];
     }
 }
 
@@ -154,10 +163,12 @@
 // Ensures that the submitted receipt is valid
 -(BOOL)validateInput
 {
-    if ([self.amountField.text length] == 0 || [[self.amountField.text componentsSeparatedByString:@"."] count] > 2) {
+    if ([self.amountField.text length] == 0 || [[self.amountField.text componentsSeparatedByString:@"."] count] > 2)
+    {
         [self apologize:@"Invalid Amount"];
         return NO;
-    } else if ([self.payeeField.text length] == 0) {
+    } else if ([self.payeeField.text length] == 0)
+    {
         [self apologize:@"Invalid Payee"];
         return NO;
     }
@@ -177,9 +188,10 @@
 
 // Extracts information form user input fields and puts data into model
 // Pops view back to previous controller
-//TODO: there's probably a better way to do this with less code repeated
-- (IBAction)done:(id)sender {
-    if ([self validateInput]) {
+- (IBAction)done:(id)sender
+{
+    if ([self validateInput])
+    {
         NSManagedObjectContext *context = [self managedObjectContext];
         // editing an existing receipt
         if (self.info && self.details)
@@ -225,7 +237,8 @@
 
 // Custom cancel behavior for when the user tries to go back.
 // Makes sure that the user really wants to go back
-- (IBAction)cancel:(id)sender {
+- (IBAction)cancel:(id)sender
+{
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Warning: Everything unsaved will be lost." message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok",nil];
     alert.tag = CANCEL_ALERT;
     [alert show];
@@ -253,10 +266,8 @@
     tesseract = nil;
 }
 
-//TODO: What does this do anyway?
 - (BOOL)shouldCancelImageRecognitionForTesseract:(Tesseract*)tesseract
 {
-    //NSLog(@"progress: %d", tesseract.progress);
     return NO;  // return YES, if you need to interrupt tesseract before it finishes
 }
 
@@ -323,41 +334,55 @@
 // Close the keyboard if you press the "done" button on the keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    // If return is pressed on the payee field, have the autocomplete handle it
     if (textField.tag == PAYEE_FIELD)
     {
         [(AutocompleteTextField*)textField handleReturn];
     }
     
+    // Hide the keyboard
     [textField resignFirstResponder];
     return YES;
 }
 
+// Implements the delete functionality for the autocomplete keyboard (this would normally
+// be done by overwriting deleteBackwards in the text field class but the method is broken in iOS8,
+// so this less elegant solution must be used.
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == PAYEE_FIELD)
     {
+        // checks to see if the change is a deletion
         if (range.length == 1  && string.length == 0)
         {
-            if (!self.payeeField.autocompleted) {
+            // if the field is not autocompleted, delete a character
+            if (!self.payeeField.autocompleted)
+            {
+                // keep track of the cursor position
                 UITextPosition *cursor = [textField positionFromPosition:
                                           self.payeeField.beginningOfDocument offset:range.location];
                 
+                // delete a single character
                 [self.payeeField uncomplete];
                 NSString *oldText = [[NSString alloc] initWithString:self.payeeField.userString];
                 self.payeeField.userString = [NSString stringWithFormat:@"%@%@",
                 [oldText substringToIndex:range.location], [oldText substringFromIndex:range.location+1]];
                 self.payeeField.text = self.payeeField.userString;
                 
+                // reset the cursor to it's previous position
                 [self.payeeField setSelectedTextRange:[self.payeeField textRangeFromPosition:cursor toPosition:cursor]];
-            } else {
+            }
+            // if the field is autocompleted, delete should uncomplete the field
+            else
+            {
                 [self.payeeField uncomplete];
             }
             
         return NO;
         }
-        //self.payeeField.userString = NSStringBy
     }
     
+    // If it's not the autocomplete payee keyboard, don't interfere
     return YES;
 }
 
@@ -395,33 +420,42 @@
 }
 
 #pragma mark - AutocompleteTextField Delegate
+
+// Attempts to find a match for the payee text in the field in the core data model
 - (NSString *)suggestionForString:(NSString *)inputString
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
     
+    // add wildcard character to allow for completion
     NSString *match = [NSString stringWithFormat:@"%@*", inputString];
     
+    // case insensitive like match with wildcard for completion
     [request setPredicate:[NSPredicate predicateWithFormat:@"payee LIKE[cd] %@", match]];
     [request setFetchLimit:1];
     NSArray *data = [context executeFetchRequest:request error:nil];
     
     NSString *completedString = nil;
     
+    // if a match is found
     if ([data count] != 0)
     {
+        // extract the "completion" string, that is, the part of the string that
+        // the user hasn't already entered
         completedString = [data[0] payee];
-        
         completedString = [completedString substringFromIndex:self.payeeField.userString.length];
         
+        // if the completion string is empty, that is the user has already entered
+        // in the full text of the matching suggestion, there is nothing to suggest
         if ([completedString isEqualToString:@""]) {
             completedString = nil;
         }
         
+        // automatically set the category picker to the category of the suggestion payee
         [self.categoryPicker selectRow:[categoryData indexOfObject:[[data[0] details]category]] inComponent:0 animated:YES];
     }
 
-
+    // return to the text field the appropriate suggestion string
     return completedString;
 
 }

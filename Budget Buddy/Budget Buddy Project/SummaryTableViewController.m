@@ -1,9 +1,12 @@
 //
-//  TableViewController.m
+//  SummaryTableViewController.m
 //  BudgetBuddy
 //
-//  Last modified by Ezra on 11/27/14
+//  Last modified by Ezra on 12/6/14
 //  Copyright (c) 2014 Ezra Zigmond. All rights reserved.
+//
+//  Root view of the summary tab. Displays the list of months for which receipt data exists
+//  Can reach the summary pie chart view by clicking on one of the months
 //
 
 #import "SummaryTableViewController.h"
@@ -20,6 +23,7 @@
 
 @implementation SummaryTableViewController
 
+// get the managed context object from the delegate for core data requests
 - (NSManagedObjectContext *)managedObjectContext
 {
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -29,27 +33,18 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    // make sure that the status bar is white to match the overall theme
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
 }
 
-//TODO: decide if we want the user to see the animation
+// refresh the table whenever the view appears
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
+    // refresh data and reload table
     [self reloadTable];
-    //    NSLog(@"%@", [tableDict description]);
-    //    NSLog(@"%@", [[tableDict allKeys] description]);
-    
-    // Reloads the table with an animation
-    //[self.tableView reloadData];
-    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Navigation
@@ -58,8 +53,13 @@
 // Pass on the selected receipt to the show detail view if receipt data selected
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // if a month is clicked, pass the month and the year of the cell to
+    // the show summary view so that the analytics can be shown
     if ([segue.identifier isEqualToString:@"showSummary"]) {
+        // get destination controller
         SummaryViewController* view = segue.destinationViewController;
+        
+        // get the month and year and pass to child view controller
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         view.year = [sectionTitles objectAtIndex:indexPath.section];
         view.month = [[tableDict objectForKey:view.year] objectAtIndex:indexPath.row];
@@ -72,12 +72,12 @@
     return [sectionTitles count];
 }
 
+// returns title of section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [sectionTitles objectAtIndex:section];
 }
 
-//TODO: implement month breaks
 // Returns number of rows in each section
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -102,40 +102,10 @@
     return cell;
 }
 
+// prevent users from deleting entries
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
-
-// Deletes appropriate data entry when the item is deleted from the table in edit mode
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        NSString *title = [sectionTitles objectAtIndex:indexPath.section];
-//        ReceiptInfo *info = [[tableDict objectForKey:title] objectAtIndex:indexPath.row];
-//        
-//        NSManagedObjectContext *context = [self managedObjectContext];
-//        [context deleteObject:[info details]];
-//        [context deleteObject:info];
-//        
-//        NSError *error = nil;
-//        if (![context save:&error]) {
-//            NSLog(@"Can't delete %@ %@", error, [error localizedDescription]);
-//            return;
-//        }
-//        
-//        
-//        //[self reloadTable];
-//        //[tableData removeObjectAtIndex:indexPath.row];
-//        if ([[tableDict objectForKey:title] count] == 1) {
-//            [tableDict removeObjectForKey:title];
-//            [sectionTitles removeObjectAtIndex:indexPath.section];
-//            [tableView deleteSections:[NSIndexSet indexSetWithIndex:[indexPath section]] withRowAnimation:UITableViewRowAnimationFade];
-//        } else {
-//            [[tableDict objectForKey:[sectionTitles objectAtIndex:[indexPath section]]]
-//             removeObjectAtIndex:indexPath.row];
-//            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//        }
-//    }
-//}
 
 // terrible horrible no good very bad hack
 
@@ -148,34 +118,46 @@
     NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
     NSArray* descriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [request setSortDescriptors:descriptors];
-//    [request setReturnsDistinctResults:YES];
-//    [request setPropertiesToFetch:@[@"date"]];
     
+    // get data from model
     tableData = [[context executeFetchRequest:request error:nil] mutableCopy];
     
     tableDict = [[NSMutableDictionary alloc] init];
+    
+    // for every receipt info object from the fetch request, we want to find out
+    // all of the years and months that have receipt entries. We create a dictionary tableDict
+    // that has years as the keys and contains arrays of months.
     for (ReceiptInfo* info in tableData) {
+        // if the year of the receipt already exists in the dictionary
         if([tableDict objectForKey:[info year]] != nil)
         {
+            // if the month does not already exist, add the month to the dictionary
             if([[tableDict objectForKey:[info year]] indexOfObject:[info month]] == NSNotFound)
             {
                 [[tableDict objectForKey:[info year]] addObject:[info month]];
             }
-        } else {
+        }
+        // if the year does not already exist, add the year to the dictionary and initialize an
+        // array containing the month
+        else
+        {
             [tableDict setValue:[[NSMutableArray alloc] initWithObjects:[info month], nil] forKey:[info year]];
         }
     }
+    
+    // get the list of the sections, which will be year, and sort them in chronological order
+    // which can be done with a basic string compare
     sectionTitles = [[NSMutableArray alloc] initWithArray:[[tableDict allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]];
     
     [self.tableView reloadData];
     
+    // Display a cool animation when the table reloads.
     //http://stackoverflow.com/questions/419472/have-a-reloaddata-for-a-uitableview-animate-when-changing
     CATransition *animation = [CATransition animation];
     [animation setType:kCATransitionFade];
     [animation setDuration:.3];
     [[self.tableView layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
-    
-    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [sectionTitles count])] withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 @end

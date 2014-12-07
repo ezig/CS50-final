@@ -4,7 +4,8 @@
 //
 //  Created by Ezra Zigmond on 12/4/14.
 //
-//
+//  Initial view controller for the application. Contains a log child view
+//  as well as the summary view
 
 #import "TabBarViewController.h"
 
@@ -18,16 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // set up the tab bar items
     UITabBarItem *log = [self.tabBar.items objectAtIndex:0];
     UITabBarItem *summary = [self.tabBar.items objectAtIndex:1];
+    
     [log setTitle:@"Log"];
     [summary setTitle:@"Summary"];
+    
+    // set up the images for the tab items
     log.selectedImage = [[UIImage imageNamed:@"logSelected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
      log.image = [[UIImage imageNamed:@"log.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
     summary.selectedImage = [[UIImage imageNamed:@"summarySelected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     summary.image = [[UIImage imageNamed:@"summary.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    //[self.tabBar setBackgroundColor:[UIColor colorWithRed:0.11 green:0.671 blue:0.843 alpha:1]]; /*#1cabd7*/
      
 }
 
@@ -36,14 +42,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

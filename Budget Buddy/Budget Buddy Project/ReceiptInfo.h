@@ -4,6 +4,7 @@
 //
 //  Created by Ezra Zigmond on 11/28/14.
 //
+//  Subclass of managed object representing the receipt info enttity.
 //
 
 #import <Foundation/Foundation.h>
