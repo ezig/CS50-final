@@ -247,7 +247,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddPictureGray2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jnM-b2-nc4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="/Img/AddPictureGray2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jnM-b2-nc4">
                                 <rect key="frame" x="10" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="q6f-TX-bdd"/>
@@ -605,7 +605,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddPictureGray2.jpg" width="1024" height="1024"/>
+        <image name="/Img/AddPictureGray2.jpg" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0WK-pf-UZy"/>

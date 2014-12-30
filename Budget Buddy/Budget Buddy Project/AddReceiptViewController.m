@@ -227,7 +227,7 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-            NSLog(@"Can't update CoreData %@ %@", error, [error localizedDescription]);
+            //NSLog(@"Can't update CoreData %@ %@", error, [error localizedDescription]);
             return;
         }
         

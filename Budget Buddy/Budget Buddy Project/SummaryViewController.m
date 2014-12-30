@@ -138,7 +138,7 @@
     
     // If the net spending is positive, display it as green, else red
     UIColor *netColor;
-    if (outflow > inflow)
+    if (outflow < inflow)
     {
         netColor = green;
     }

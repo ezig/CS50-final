@@ -15,5 +15,4 @@
 @dynamic payment;
 @dynamic category;
 @dynamic info;
-
 @end

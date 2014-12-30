@@ -134,7 +134,7 @@
         // update data model and save
         NSError *error = nil;
         if (![context save:&error]) {
-            NSLog(@"Can't delete %@ %@", error, [error localizedDescription]);
+            //NSLog(@"Can't delete %@ %@", error, [error localizedDescription]);
             return;
         }
 
