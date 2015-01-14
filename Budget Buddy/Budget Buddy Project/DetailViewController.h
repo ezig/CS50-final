@@ -10,6 +10,7 @@
 #import "ReceiptInfo.h"
 #import "ReceiptDetails.h"
 #import "AddReceiptViewController.h"
+#import "ImageViewController.h"
 
 @interface DetailViewController : UIViewController
 

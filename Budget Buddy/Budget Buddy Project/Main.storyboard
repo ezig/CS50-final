@@ -10,7 +10,7 @@
         <!--Image-->
         <scene sceneID="Erb-67-VNx">
             <objects>
-                <viewController id="zxC-rI-w4a" sceneMemberID="viewController">
+                <viewController id="zxC-rI-w4a" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vCT-Oy-nxm"/>
                         <viewControllerLayoutGuide type="bottom" id="wqi-18-WxC"/>
@@ -18,9 +18,23 @@
                     <view key="view" contentMode="scaleToFill" id="iJz-za-Wkg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sPY-HI-6wW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sPY-HI-6wW" firstAttribute="leading" secondItem="iJz-za-Wkg" secondAttribute="leading" id="FCi-Vv-LOT"/>
+                            <constraint firstAttribute="trailing" secondItem="sPY-HI-6wW" secondAttribute="trailing" id="G6n-Gb-Kvb"/>
+                            <constraint firstItem="sPY-HI-6wW" firstAttribute="top" secondItem="vCT-Oy-nxm" secondAttribute="bottom" id="IfL-iu-iDq"/>
+                            <constraint firstItem="sPY-HI-6wW" firstAttribute="bottom" secondItem="wqi-18-WxC" secondAttribute="top" id="RSz-dB-cwf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image" id="UY1-vA-TR4"/>
+                    <connections>
+                        <outlet property="imageView" destination="sPY-HI-6wW" id="ttc-hN-h8G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsI-XC-heh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

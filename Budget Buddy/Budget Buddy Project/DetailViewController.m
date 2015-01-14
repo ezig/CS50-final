@@ -66,14 +66,12 @@
     // let the user click on an image to see it in greater detail
     if ([segue.identifier isEqualToString:@"showImage"]) {
         // get the destination view
-        UIViewController *viewController = segue.destinationViewController;
+        ImageViewController *viewController = segue.destinationViewController;
         UIView *view = viewController.view;
         
         // create an image view and fill the view with the image of the current receipt
         UIImage *image = [UIImage imageWithData:self.details.imageData];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:view.frame];
-        [imageView setImage:image];
-        [view addSubview:imageView];
+        [viewController.imageView setImage: image];
     }
 }
 
