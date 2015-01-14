@@ -129,8 +129,8 @@
     [pieGraph reloadData];
     
     // color
-    UIColor *green = [UIColor colorWithRed:.888 green:.140 blue:.024 alpha:1];
-    UIColor *red = [UIColor colorWithRed:0.305 green:0.809 blue:.316 alpha:1];
+    UIColor *red = [UIColor colorWithRed:.888 green:.140 blue:.024 alpha:1];
+    UIColor *green = [UIColor colorWithRed:0.305 green:0.809 blue:.316 alpha:1];
     
     // Display the inflow and the outplow text
     self.outflowLabel.attributedText = [[NSMutableAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"%2.f", outflow] attributes:[NSDictionary dictionaryWithObject:red forKey:NSForegroundColorAttributeName]];
