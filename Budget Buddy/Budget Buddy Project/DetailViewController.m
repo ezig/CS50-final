@@ -69,7 +69,7 @@
         ImageViewController *viewController = segue.destinationViewController;
         UIView *view = viewController.view;
         
-        // create an image view and fill the view with the image of the current receipt
+        // fill the view with the image of the current receipt
         UIImage *image = [UIImage imageWithData:self.details.imageData];
         [viewController.imageView setImage: image];
     }

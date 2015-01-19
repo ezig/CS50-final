@@ -179,12 +179,12 @@
     return [NSNumber numberWithDouble:pieData[index]];
 }
 
-// Given a start date and an end date, get all of the receipt info form the core
+// Given a start date and an end date, get all of the receipt info fromm the core
 // data model between the given dates
 -(NSArray*)entriesfromDate:(NSDate*)fromDate toDate:(NSDate*)toDate{
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"ReceiptInfo"];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReceiptInfo"];
 
     // limit the fetch request by date
     NSPredicate *predicate = [NSPredicate predicateWithFormat: @"date >= %@ && date <= %@", fromDate, toDate];

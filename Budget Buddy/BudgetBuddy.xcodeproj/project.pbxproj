@@ -60,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		630727C21A6830CF00D4E2AA /* BudgetBuddy 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BudgetBuddy 2.xcdatamodel"; sourceTree = "<group>"; };
 		630C1E301A323D8A00187319 /* SummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryTableViewController.h; sourceTree = "<group>"; };
 		630C1E311A323D8A00187319 /* SummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryTableViewController.m; sourceTree = "<group>"; };
 		630DE81C1A1E6AC5000F2ACC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -522,6 +523,7 @@
 		63AA3FBB1A28D4B300355216 /* BudgetBuddy.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				630727C21A6830CF00D4E2AA /* BudgetBuddy 2.xcdatamodel */,
 				63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */,
 			);
 			currentVersion = 63AA3FBC1A28D4B300355216 /* BudgetBuddy.xcdatamodel */;
