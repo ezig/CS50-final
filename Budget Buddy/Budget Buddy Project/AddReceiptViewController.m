@@ -79,6 +79,7 @@
         
         self.amountField.text = [NSString stringWithFormat:@"%.2f", [self.info.amount doubleValue]];
         self.payeeField.text = self.info.payee;
+        self.payeeField.userString = self.info.payee;
         
         NSUInteger categoryIdx = [categoryData indexOfObject:self.details.category];
         [self.categoryPicker selectRow:categoryIdx inComponent:0 animated:YES];
